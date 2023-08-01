@@ -18,7 +18,7 @@
 
             <div id="dragContainer1">
               <div class="draggable"></div>
-              <p onclick="deleteDraggable()">Delete other container</p>
+              <p onclick="deleteDraggable()">This is from dev testing</p>
             </div>
 
             <div id="dragContainer2">
