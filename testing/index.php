@@ -18,7 +18,7 @@
 
             <div id="dragContainer1">
               <div class="draggable"></div>
-              <p onclick="deleteDraggable()">This is a git commit test</p>
+              <p onclick="deleteDraggable()">Delete other container</p>
             </div>
 
             <div id="dragContainer2">
