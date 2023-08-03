@@ -1,9 +1,11 @@
 let accessToken = localStorage.getItem('spotifyAccessToken');
 
+console.log('Access '+accessToken);
+
 function getSpotifyAuthToken() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const authToken = urlParams.get('code');
-  return authToken;
+        const urlParams = new URLSearchParams(window.location.search);
+        const authToken = urlParams.get('code');
+        return authToken;
 }
 
 console.log(accessToken);
@@ -12,7 +14,6 @@ console.log(getSpotifyAuthToken());
 if (accessToken == undefined) {
   fetchSpotifyToken().then(tokens => {
     accessToken = tokens.accessToken;
-    localStorage.setItem('spotifyAccessToken', tokens.accessToken);
     localStorage.setItem('spotifyAccessTokenExpiry', Date.now() + 45 * 60 * 1000);  // Expiry in 45 minutes
     fetchCurrentlyPlaying(); 
     setInterval(fetchCurrentlyPlaying, 5000);
@@ -30,31 +31,35 @@ if (accessToken == undefined) {
 }
 
 async function fetchSpotifyToken() {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: 'Basic N2I5NmE2NjhmOGNmNGI4NDg4MTllYmVmMjg5YTIzMzY6MDk2ZDRhZWU4NTg0NDBhY2EzNzQ1MWVjZTU2N2IzMDA='
-    },
-    body: new URLSearchParams({
-      grant_type: 'authorization_code',
-      code: getSpotifyAuthToken(),
-      redirect_uri: 'http://nortonwebtesting.free.nf/?i=2'
-    })
-  };
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: 'Basic N2I5NmE2NjhmOGNmNGI4NDg4MTllYmVmMjg5YTIzMzY6MDk2ZDRhZWU4NTg0NDBhY2EzNzQ1MWVjZTU2N2IzMDA='
+      },
+      body: new URLSearchParams({
+        grant_type: 'authorization_code',
+        code: getSpotifyAuthToken(),
+        redirect_uri: 'http://nortonwebtesting.free.nf/?i=2'
+      })
+    };
+  
+    try {
+      const response = await fetch('https://accounts.spotify.com/api/token', options);
+      const data = await response.json();
+      console.log(data.refresh_token);
 
-  try {
-    const response = await fetch('https://accounts.spotify.com/api/token', options);
-    const data = await response.json();
+      if (!accessToken){
+        localStorage.setItem('spotifyRefreshToken', data.refresh_token);
+        localStorage.setItem('spotifyAccessToken', data.access_token);
+      }
 
-    console.log(data.refresh_token);
-    localStorage.setItem('spotifyRefreshToken', data.refresh_token);
-    localStorage.setItem('spotifyAccessToken', data.access_token);
-    return { accessToken: data.access_token, refreshToken: data.refresh_token };
-  } catch (err) {
-    console.error(err);
+      return { accessToken: data.access_token, refreshToken: data.refresh_token };
+    } catch (err) {
+      console.error(err);
+    }
   }
-}
+  
 
 console.log(fetchSpotifyToken())
 
