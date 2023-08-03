@@ -1,17 +1,12 @@
 let accessToken = localStorage.getItem('spotifyAccessToken');
 
-console.log('Access '+accessToken);
-
 function getSpotifyAuthToken() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const authToken = urlParams.get('code');
-        return authToken;
+  const urlParams = new URLSearchParams(window.location.search);
+  const authToken = urlParams.get('code');
+  return authToken;
 }
 
-console.log(accessToken);
-console.log(getSpotifyAuthToken());
-
-if (accessToken == undefined) {
+if (!accessToken) {
   fetchSpotifyToken().then(tokens => {
     accessToken = tokens.accessToken;
     localStorage.setItem('spotifyAccessTokenExpiry', Date.now() + 45 * 60 * 1000);  // Expiry in 45 minutes
@@ -22,7 +17,6 @@ if (accessToken == undefined) {
   // Token expired, fetch a new one
   fetchSpotifyToken().then(tokens => {
     accessToken = tokens.accessToken;
-    localStorage.setItem('spotifyAccessToken', tokens.accessToken);
     localStorage.setItem('spotifyAccessTokenExpiry', Date.now() + 45 * 60 * 1000);  // Expiry in 45 minutes
   });
 } else {
@@ -40,28 +34,23 @@ async function fetchSpotifyToken() {
       body: new URLSearchParams({
         grant_type: 'authorization_code',
         code: getSpotifyAuthToken(),
-        redirect_uri: 'http://nortonwebtesting.free.nf/?i=2'
+        redirect_uri: 'https://nortonwebtesting.free.nf/?i=2'
       })
     };
-  
+
     try {
       const response = await fetch('https://accounts.spotify.com/api/token', options);
       const data = await response.json();
-      console.log(data.refresh_token);
-
-      if (!accessToken){
         localStorage.setItem('spotifyRefreshToken', data.refresh_token);
         localStorage.setItem('spotifyAccessToken', data.access_token);
-      }
+        console.log(localStorage.getItem('spotifyAccessToken'));
 
       return { accessToken: data.access_token, refreshToken: data.refresh_token };
+
     } catch (err) {
       console.error(err);
     }
-  }
-  
-
-console.log(fetchSpotifyToken())
+}
 
 async function fetchCurrentlyPlaying() {
   const options = {
