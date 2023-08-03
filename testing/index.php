@@ -20,12 +20,12 @@
 
         <div class="scene">
 
-            <div id="dragContainer1">
+            <div id="dragContainer1" style="display: none;">
               <div class="draggable"></div>
               <p onclick="deleteDraggable()">This is Dev testing Branch</p>
             </div>
 
-            <div id="dragContainer2">
+            <div id="dragContainer2" style="display: none;">
                 <div class="draggable"></div>
             </div>
 
