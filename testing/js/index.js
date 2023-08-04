@@ -4,6 +4,9 @@
 
     var draggable2 = new PlainDraggable(document.getElementById('dragContainer2'),
     {handle: document.querySelector('#dragContainer2 .draggable')});
+
+    var spotifyContainer = new PlainDraggable(document.getElementById('spotifyContainer'),
+    {handle: document.querySelector('#spotifyContainer .draggable')});
     
 
 

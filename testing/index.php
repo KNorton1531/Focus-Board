@@ -7,23 +7,29 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/spotify.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     </head>
     <body>
 
     <video autoplay muted loop id="myVideo">
-        <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4">
+        <source src="#" type="video/mp4">
     </video>
 
         <div class="scene">
 
-            <div id="dragContainer1">
+            <div id="dragContainer1" style="display: none;">
               <div class="draggable"></div>
               <p onclick="deleteDraggable()">This is from dev testing</p>
             </div>
 
-            <div id="dragContainer2">
+            <div id="dragContainer2" style="display: none;">
                 <div class="draggable"></div>
             </div>
+
+            <?= include 'templates/spotifyContainer.php'; ?>
 
         </div>
 
@@ -33,5 +39,6 @@
 
         <script src="js/plain-draggable.min.js"></script>
         <script src="js/index.js" defer></script>
+        <script src="js/spotifyAPI.js" defer></script>
     </body>
 </html>
