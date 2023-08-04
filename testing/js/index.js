@@ -20,3 +20,12 @@
       draggable1.style.display = "none";
     }
   }
+
+  function ToggleSettings() {
+    var x = document.getElementById("settingsContainer");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }

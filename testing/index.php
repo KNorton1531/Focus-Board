@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/spotify.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="css/settings.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -29,7 +30,8 @@
                 <div class="draggable"></div>
             </div>
 
-            <?= include 'templates/spotifyContainer.php'; ?>
+            <?= include 'templates/spotifyContainer.php'?>
+            <?= include 'templates/settings.php'?>
 
         </div>
 
