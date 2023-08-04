@@ -24,9 +24,16 @@ async function fetchSpotifyToken() {
       const response = await fetch('https://accounts.spotify.com/api/token', options);
       const data = await response.json();
   
-      if (data.access_token && data.refresh_token) { // check if tokens exist in the response
+      if (data.access_token && data.refresh_token && data.expires_in) {
         localStorage.setItem('spotifyAccessToken', data.access_token);
         localStorage.setItem('spotifyRefreshToken', data.refresh_token);
+        localStorage.setItem('spotifyTokenExpiry', Date.now() + data.expires_in * 1000);
+  
+        // Hide the authElement because the user is authorized
+        document.getElementById('nowPlayingContainer').style.display = 'none';
+      } else {
+        // Show the authElement because the user is not authorized
+        document.getElementById('nowPlayingContainer').style.display = 'inline';
       }
   
       return { accessToken: data.access_token, refreshToken: data.refresh_token };
@@ -60,42 +67,53 @@ async function fetchCurrentlyPlaying() {
   }
 }
 
-let localAccessToken = localStorage.getItem('spotifyAccessToken');
+// Call this function to refresh the token when it expires
+async function refreshToken() {
+  // Refresh token using refresh_token endpoint and localStorage.getItem('spotifyRefreshToken')
 
-if (localAccessToken){
-  console.log('Confirm IS token');
-} else if (!localAccessToken){
-  console.log('Confirm NO token');
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: 'Basic N2I5NmE2NjhmOGNmNGI4NDg4MTllYmVmMjg5YTIzMzY6MDk2ZDRhZWU4NTg0NDBhY2EzNzQ1MWVjZTU2N2IzMDA='
+    },
+    body: new URLSearchParams({
+      grant_type: 'refresh_token',
+      refresh_token: localStorage.getItem('spotifyRefreshToken')
+    })
+  };
+
+  try {
+    const response = await fetch('https://accounts.spotify.com/api/token', options);
+    const data = await response.json();
+
+    if (data.access_token) {
+      localStorage.setItem('spotifyAccessToken', data.access_token);
+      // Update expiry time
+      localStorage.setItem('spotifyTokenExpiry', Date.now() + data.expires_in * 1000);
+    }
+
+    return { accessToken: data.access_token };
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 
   if (typeof localStorage.getItem('spotifyAccessToken') !== 'undefined'){
     fetchSpotifyToken();
-    fetchCurrentlyPlaying(); 
+    fetchCurrentlyPlaying();
+    setInterval(fetchCurrentlyPlaying, 5000);
   }
 
+  function checkAndRefreshToken() {
+    const tokenExpiry = localStorage.getItem('spotifyTokenExpiry');
+  
+    if (Date.now() > tokenExpiry) {
+      refreshToken();
+    }
+  }
 
-  // if (!localAccessToken) {
-  //   fetchSpotifyToken().then(tokens => {
-  //     accessToken = tokens.accessToken;
-  //     localStorage.setItem('spotifyAccessTokenExpiry', Date.now() + 45 * 60 * 1000);  // Expiry in 45 minutes
-  //     fetchCurrentlyPlaying(); 
-  //     setInterval(fetchCurrentlyPlaying, 5000);
-  //     console.log('There is no Access Token');
-  //     console.log(accessToken);
-  //   });
-  // } else if (Date.now() > localStorage.getItem('spotifyAccessTokenExpiry')) {
-  //   // Token expired, fetch a new one
-  //   fetchSpotifyToken().then(tokens => {
-  //     accessToken = tokens.accessToken;
-  //     localStorage.setItem('spotifyAccessTokenExpiry', Date.now() + 45 * 60 * 1000);  // Expiry in 45 minutes
-  //   });
-  // } else {
-  //   fetchSpotifyToken().then(tokens => {
-  //     accessToken = tokens.accessToken;  // Update the accessToken after fetching
-  //     fetchCurrentlyPlaying(); 
-  //     setInterval(fetchCurrentlyPlaying, 5000);
-  //     console.log('There is an Access Token');
-  //     console.log(accessToken);
-  //   });
-  // }
+  // Call checkAndRefreshToken every minute
+setInterval(checkAndRefreshToken, 60 * 1000);
+
