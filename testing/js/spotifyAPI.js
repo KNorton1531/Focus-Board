@@ -16,7 +16,7 @@ async function fetchSpotifyToken() {
       body: new URLSearchParams({
         grant_type: 'authorization_code',
         code: getSpotifyAuthToken(),
-        redirect_uri: 'https://nortonwebtesting.free.nf/?i=2'
+        redirect_uri: 'https://nortonwebtesting.free.nf'
       })
     };
 
@@ -55,10 +55,25 @@ async function fetchCurrentlyPlaying() {
     const response = await fetch('https://api.spotify.com/v1/me/player/currently-playing', options);
     const responseData = await response.json();
     const currentlyPlayingData = responseData;
-    console.log(currentlyPlayingData.item.name);
-    console.log(currentlyPlayingData.item.artists[0].name);
-    console.log(currentlyPlayingData.item);
-    console.log(currentlyPlayingData.item.album.images[0].url);
+    let playState = currentlyPlayingData.is_playing;
+
+    console.log(currentlyPlayingData);
+
+    localStorage.setItem('deviceID', currentlyPlayingData.item.id);
+    localStorage.setItem('trackHref', currentlyPlayingData.item.href);
+
+    if (playState == true){
+      $(".spotifyPlay").hide();
+      $(".spotifyPause").show();
+      $("#sound-bars").removeClass("paused");
+      console.log("Playing");
+    } else {
+      $(".spotifyPlay").show();
+      $(".spotifyPause").hide();
+      $("#sound-bars").addClass("paused");
+      console.log("Stopped");
+    }
+
     document.getElementById("nowPlaying").innerHTML = currentlyPlayingData.item.name;
     document.getElementById("artistPlaying").innerHTML = currentlyPlayingData.item.artists[0].name;
     document.getElementById("nowPlayingAlbum").src = currentlyPlayingData.item.album.images[0].url;
@@ -66,6 +81,79 @@ async function fetchCurrentlyPlaying() {
     console.error(err);
   }
 }
+
+async function playSpotify() {
+  fetch('https://api.spotify.com/v1/me/player/play', {
+    method: 'PUT',
+    headers: {
+      'Authorization': 'Bearer '+localStorage.getItem('spotifyAccessToken'),
+      'Content-Type': 'application/json'
+    },
+  })
+  .then(data => {
+    console.log(data);
+    $(".spotifyPause").show();
+    $(".spotifyPlay").hide();
+    $("#sound-bars").removeClass("paused");
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
+async function pauseSpotify() {
+  fetch('https://api.spotify.com/v1/me/player/pause', {
+    method: 'PUT',
+    headers: {
+      'Authorization': 'Bearer '+localStorage.getItem('spotifyAccessToken'),
+      'Content-Type': 'application/json'
+    },
+  })
+  .then(data => {
+    console.log(data);
+    $(".spotifyPause").hide();
+    $(".spotifyPlay").show();
+    $("#sound-bars").addClass("paused");
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
+async function previousSpotify() {
+  fetch('https://api.spotify.com/v1/me/player/previous', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer '+localStorage.getItem('spotifyAccessToken'),
+      'Content-Type': 'application/json'
+    },
+  })
+  .then(data => {
+    console.log(data);
+    fetchCurrentlyPlaying();
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
+async function nextSpotify() {
+  fetch('https://api.spotify.com/v1/me/player/next', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer '+localStorage.getItem('spotifyAccessToken'),
+      'Content-Type': 'application/json'
+    },
+  })
+  .then(data => {
+    console.log(data);
+    fetchCurrentlyPlaying();
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
 
 // Call this function to refresh the token when it expires
 async function refreshToken() {
@@ -99,11 +187,11 @@ async function refreshToken() {
   }
 }
 
-
+// Optimise this later to only run when spotify container is shown
   if (typeof localStorage.getItem('spotifyAccessToken') !== 'undefined'){
     fetchSpotifyToken();
     fetchCurrentlyPlaying();
-    setInterval(fetchCurrentlyPlaying, 5000);
+    setInterval(fetchCurrentlyPlaying, 3000);
   }
 
   function checkAndRefreshToken() {
@@ -116,4 +204,7 @@ async function refreshToken() {
 
   // Call checkAndRefreshToken every minute
 setInterval(checkAndRefreshToken, 60 * 1000);
+
+
+
 

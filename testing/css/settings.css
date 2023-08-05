@@ -9,6 +9,7 @@
     padding: 20px;
     display: none;
     border-radius: 10px;
+    background-color: #000;
 }
 
 #settingsContainer .closeButton{
@@ -16,5 +17,13 @@
     top: 0;
     right: 0;
     padding: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.settingsButton{
+    position: absolute;
+    bottom: 0;
+    left: 0;
     cursor: pointer;
 }

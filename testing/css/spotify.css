@@ -1,22 +1,17 @@
 #spotifyContainer{
-    border: solid 1px black;
-    resize: both;
-    overflow: auto;
-    min-height: 400px;
-    min-width: 300px;
+    border: solid 1px black;    
     position: absolute;
     background-color: #000;
     color: #fff;
     border-radius: 10px;
-    padding: 10px;
     text-align: center;
+    width: 500px;
 }
 
-#spotifyContainer a{
-    padding: 5px;
-    color: #fff;
-    border: solid 1px #fff;
-    border-radius: 4px;
+.spotifyWrapper{
+    display: flex;
+    margin: 15px;
+    position: relative;
 }
 
 #nowPlayingAlbum{
@@ -24,7 +19,147 @@
     width: 100px;
 }
 
+#nowPlaying{
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+}
+
 #spotifyContainer .settingsButton{
     cursor: pointer;
     margin-top: 10px;
+}
+
+.nowPlayingContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.songContainer{
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 260px;
+}
+
+.songContainer h5{
+    margin: 5px 10px;
+}
+
+.artistContainer{
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.artistContainer h5{
+    margin: 5px 10px;
+}
+
+.spotifyLogoWrapper img{
+    height: 50px;
+    width: 55px;
+}
+
+.spotifyLogoWrapper{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+
+/************************************ SOUNDBAR STARTS ****************************************************/
+#sound-bars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    padding: 10px;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    bottom: 0;
+    right: 0;
+  }
+  #sound-bars span {
+    background: #fff;
+    margin: auto 1px 0;
+    height: 100%;
+    width: 2px;
+    transform: scaleY(0.99);
+    transform-origin: bottom;
+    box-shadow: 0 4px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease-in-out;
+  }
+  #sound-bars span:nth-child(1) {
+    transform: scaleY(0.8);
+  }
+  #sound-bars span:nth-child(2) {
+    transform: scaleY(0.6);
+  }
+  #sound-bars span:nth-child(4) {
+    transform: scaleY(0.4);
+  }
+  #sound-bars:not(.paused) > span {
+    animation: sound-bars-animation 2s infinite alternate;
+  }
+  #sound-bars:not(.paused) > span:nth-child(1) {
+    animation-delay: 0.4s;
+  }
+  #sound-bars:not(.paused) > span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  #sound-bars:not(.paused) > span:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  #sound-bars:not(.paused) > span:nth-child(4) {
+    animation-delay: 0.8s;
+  }
+  #sound-bars:before {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    background: #fff;
+    border-radius: 100%;
+    transition: all 0.4s ease-in-out;
+  }
+  #sound-bars.paused > span {
+    opacity: 0.2;
+    transform: scaleY(0.2);
+  }
+  
+  @keyframes sound-bars-animation {
+    50% {
+      opacity: 0.2;
+      transform: scaleY(0.2);
+    }
+    100% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+  
+
+
+/************************************* SOUNDBAR ENDS *****************************************************/
+
+.playbackContainer .spotifyPlay{
+    cursor: pointer;
+}
+
+.playbackContainer .spotifyPause{
+    display: none;
+    cursor: pointer;
+}
+
+.playbackContainer .spotifyPrev{
+    cursor: pointer;
+}
+
+.playbackContainer .spotifyNext{
+    cursor: pointer;
 }

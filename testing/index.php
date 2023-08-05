@@ -35,10 +35,13 @@
 
         </div>
 
+        <div onclick="ToggleSettings()" class="settingsButton">⚙️</div>
+
     </body>
 
 
 
+        <script src="js/jquery.min.js"></script>
         <script src="js/plain-draggable.min.js"></script>
         <script src="js/index.js" defer></script>
         <script src="js/spotifyAPI.js" defer></script>
