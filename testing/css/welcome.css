@@ -1,0 +1,28 @@
+.scene #welcomeDraggable{
+    color: #fff;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.3px);
+    -webkit-backdrop-filter: blur(4.3px);
+    border: 1px solid rgba(255, 255, 255, 0.41);
+    resize: both;
+    overflow: hidden;
+}
+
+#welcomeDraggable .draggable{
+    border: none;
+    height: auto;
+    padding: 20px;
+}
+
+#welcomeContainer{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.time{
+    font-size: 18px;
+    margin-top: 5px;
+}

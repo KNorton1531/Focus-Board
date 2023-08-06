@@ -1,15 +1,18 @@
 #settingsContainer{
     height: 500px;
-    width: 500px;
-    border: solid 1px #000;
+    width: 60%;
+    border: solid 1px #cdcdcd;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    display: none;
     border-radius: 10px;
-    background-color: #000;
+    background-color: #101010e3;
+    justify-content: space-between;
+    color: #fff;
+    z-index: 1;
+    display: none;
 }
 
 #settingsContainer .closeButton{
@@ -26,4 +29,74 @@
     bottom: 0;
     left: 0;
     cursor: pointer;
+}
+
+.settingsNavContainer{
+    border-right: solid #fff 1px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.settingsNavContainer ul li{
+    text-decoration: none;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.settingsContent{
+    width: 60%;
+}
+
+.settingContent ul li{
+    list-style-type: none;
+}
+
+.settingsContent .userDetails{
+    margin-top: 30px;
+}
+
+.settingsContent .nameLabel{
+    margin-bottom: 10px;
+}
+
+.settingsContent .weatherLabel{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    height: 100%;
+    opacity: 30%;
+}
+
+.settingsContent .weatherInputWrapper{
+    height: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.submitWeather{
+    opacity: 30%;
+}
+
+.clearWeather{
+    opacity: 30%;
+}
+
+.settingsContent .nameInputWrapper{
+    height: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.settingsContent .weatherInput{
+    opacity: 30%;
+    pointer-events: none;
+}
+
+.settingsContent .submitName{
+    height: 20px;
+}
+
+.settingsContent .clearName{
+    height: 20px;
 }

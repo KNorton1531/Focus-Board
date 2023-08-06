@@ -28,12 +28,6 @@ async function fetchSpotifyToken() {
         localStorage.setItem('spotifyAccessToken', data.access_token);
         localStorage.setItem('spotifyRefreshToken', data.refresh_token);
         localStorage.setItem('spotifyTokenExpiry', Date.now() + data.expires_in * 1000);
-  
-        // Hide the authElement because the user is authorized
-        document.getElementById('nowPlayingContainer').style.display = 'none';
-      } else {
-        // Show the authElement because the user is not authorized
-        document.getElementById('nowPlayingContainer').style.display = 'inline';
       }
   
       return { accessToken: data.access_token, refreshToken: data.refresh_token };
@@ -191,16 +185,23 @@ async function refreshToken() {
   if (typeof localStorage.getItem('spotifyAccessToken') !== 'undefined'){
     fetchSpotifyToken();
     fetchCurrentlyPlaying();
+    setTimeout(checkSpotify, 3000);
     setInterval(fetchCurrentlyPlaying, 3000);
   }
 
-  function checkAndRefreshToken() {
-    const tokenExpiry = localStorage.getItem('spotifyTokenExpiry');
-  
-    if (Date.now() > tokenExpiry) {
-      refreshToken();
-    }
+function checkAndRefreshToken() {
+  const tokenExpiry = localStorage.getItem('spotifyTokenExpiry');
+
+  if (Date.now() > tokenExpiry) {
+    refreshToken();
   }
+}
+
+function checkSpotify(){
+  if (localStorage.getItem('spotifyAccessToken')){
+    $('#nowPlaying').html('Play a song through your Spotify app')
+  }
+}
 
   // Call checkAndRefreshToken every minute
 setInterval(checkAndRefreshToken, 60 * 1000);

@@ -1,0 +1,82 @@
+.informationIcon{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 12px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    background-color: #3a3a3a;
+}
+
+.closeInfo{
+    padding: 5px;
+    position: absolute;
+    top: 16%;
+    right: 15.6%;
+    padding: 4px 10px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    z-index: 3;
+    cursor: pointer;
+    display: none;
+}
+
+.informationContainer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    width: 70%;
+    text-align: center;
+    color: #fff;
+    background-color: #0c0c0c;
+    border-radius: 5px;
+    z-index: 2;
+    border: solid 1px #fff;
+    overflow-y: scroll;
+    display: none;
+}
+
+.blackout{
+    position: fixed;
+    background-color: #000000d4;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    display: none;
+}
+
+.infoTopic{
+    margin-top: 50px;
+    padding: 0 30px;
+}
+
+.infoTopic p{
+    margin-bottom: 0;
+}
+
+.informationContainer::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #000000;
+    border-radius: 5px;
+}
+
+.informationContainer::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #d8d8d8;
+    border-radius: 10%;
+}
+
+.informationContainer::-webkit-scrollbar-thumb
+{
+	background-color: #1d1d1d;
+    border-radius: 10%;
+}

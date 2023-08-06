@@ -1,11 +1,12 @@
 #spotifyContainer{
-    border: solid 1px black;    
+    border: solid 1px #cdcdcd;    
     position: absolute;
-    background-color: #000;
+    background-color: #101010e3;
     color: #fff;
     border-radius: 10px;
     text-align: center;
     width: 500px;
+    display: none;
 }
 
 .spotifyWrapper{
@@ -30,10 +31,14 @@
     margin-top: 10px;
 }
 
+#nowPlayingContainer{
+  color: #fff;
+  padding: 5px;
+  border: solid 1px #fff;
+}
+
 .nowPlayingContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  text-align: left;
 }
 
 .songContainer{
@@ -149,11 +154,13 @@
 
 .playbackContainer .spotifyPlay{
     cursor: pointer;
+    margin: 0 10px;
 }
 
 .playbackContainer .spotifyPause{
     display: none;
     cursor: pointer;
+    margin: 0 10px;
 }
 
 .playbackContainer .spotifyPrev{
@@ -162,4 +169,8 @@
 
 .playbackContainer .spotifyNext{
     cursor: pointer;
+}
+
+.settingsContent li{
+  list-style: none;
 }
