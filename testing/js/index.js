@@ -4,7 +4,10 @@
     {handle: document.querySelector('#spotifyContainer .draggable')});
 
     var welcomeContainer = new PlainDraggable(document.getElementById('welcomeDraggable'),
-    {handle: document.querySelector('#welcomeDraggable .draggable')});;
+    {handle: document.querySelector('#welcomeDraggable .draggable')});
+
+    var countdownContainer = new PlainDraggable(document.getElementById('countdownContainer'),
+    {handle: document.querySelector('#countdownContainer .draggable')});
 
 
     //****************************************** Handle container locations  ********************************************************/
@@ -40,6 +43,21 @@
           localStorage.setItem('positions', JSON.stringify(positions));
       }
   }
+
+  countdownContainer.onDragEnd = function(pointerXY) {
+    var transformValue = $('#countdownContainer').css('transform');
+    var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
+    var match = transformValue.match(regex);
+
+    if (match) {
+        var xValue = parseFloat(match[5]);  
+        var yValue = parseFloat(match[6]);  
+
+        var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+        positions.countdown = { x: xValue, y: yValue };
+        localStorage.setItem('positions', JSON.stringify(positions));
+    }
+}
   
   $(document).ready(function() {
       var positions = JSON.parse(localStorage.getItem('positions') || '{}');
@@ -52,6 +70,11 @@
       if (positions.spotify) { 
           $('#spotifyContainer').css('transform', 'translate(' + positions.spotify.x + 'px,' + positions.spotify.y + 'px)');
           $('#spotifyContainer').css('display', 'block');
+      }
+
+      if (positions.spotify) { 
+        $('#countdownContainer').css('transform', 'translate(' + positions.countdown.x + 'px,' + positions.countdown.y + 'px)');
+        $('#countdownContainer').css('display', 'block');
       }
   });
 

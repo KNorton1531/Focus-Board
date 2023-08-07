@@ -6,7 +6,7 @@
         <a target="_blank" href="https://open.spotify.com/"><img src="assets/svg/spotifyLogo.svg" alt=""></a>
         </div>
 
-        <img id="nowPlayingAlbum"  src="https://placehold.jp/75x75.png" alt="">
+        <img id="nowPlayingAlbum"  src="https://placehold.jp/ffffff/ffffff/75x75.png" alt="">
 
         <div class="nowPlayingContainer">
 

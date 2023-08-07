@@ -10,6 +10,7 @@
     resize: both;
     overflow: hidden;
     display: none;
+    position: absolute;
 }
 
 #welcomeDraggable .draggable{

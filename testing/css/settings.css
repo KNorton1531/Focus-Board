@@ -35,6 +35,10 @@
     padding: 10px;
 }
 
+.settingsNavContainer h5{
+    margin: 10px 0;
+}
+
 .settingsNavContainer ul li{
     text-decoration: none;
     list-style-type: none;
@@ -57,7 +61,7 @@
     margin-bottom: 10px;
 }
 
-.settingsContent .weatherLabel{
+.userTab .weatherLabel{
     margin-top: 30px;
     margin-bottom: 10px;
     height: 100%;
@@ -95,4 +99,36 @@
 
 .settingsContent .clearName{
     height: 20px;
+}
+
+#settingsContainer .settingsActive{
+    border-radius: 5px;
+    outline: 1px solid #fff;
+}
+
+.userSettings{
+    display: block;
+}
+
+.spotifyTab{
+    display: none;
+
+}
+
+.tabContainer{
+    padding: 30px;
+    width: 100%;
+}
+
+.countdownTab{
+    display: none;
+}
+
+.countdownLabel{
+    margin-top: 30px;
+}
+
+.settingsItem{
+    padding: 0px 10px;
+    margin-bottom: 10px;
 }

@@ -22,7 +22,7 @@
         <p style="line-height: 1.7;">IMPORTANT: The spotify app is in development mode and I can't do anything about that yet. If you want to have your account added to the app, email me your spotify email to dexterandkyle@live.co.uk and I will add you. Without this you will not be able to link your account.</p>
     </div>
 
-    <div class="infoTopic" style="line-height: 0.6; margin-bottom: 50px;">
+    <div class="infoTopic" style="line-height: 0.6;">
         <h3>Planned Features</h3>
         <p>• Save size of containers</p>
         <p>• Add tool tips and first time use intro</p>
@@ -35,7 +35,16 @@
         <p>• Changeable backgrounds</p>
         <p>• Expandable toolbar</p>
         <p>• Validation on user settings</p>
+        <p>• Themes</p>
         <p>• Easter Eggs</p>
+        <!-- <p>• </p> -->
+    </div>
+
+    <div class="infoTopic" style="line-height: 0.6; margin-bottom: 50px;">
+        <h3>Known Bugs</h3>
+        <p>• Containers hide on page resize</p>
+        <p>• Spotify playback can be delayed by 3 seconds</p>
+
         <!-- <p>• </p> -->
     </div>
 

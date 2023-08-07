@@ -12,8 +12,8 @@
             <img src="assets/svg/wavingHand.svg" alt="">
         </div>
 
-        <div class="barIcon timer">
-
+        <div class="barIcon countdown">
+            <img src="assets/svg/calendar.svg" alt="">
         </div>
     </div>
 </div>

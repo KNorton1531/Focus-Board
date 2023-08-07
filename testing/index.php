@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/countdown.css">
         <link rel="stylesheet" href="css/information.css">
         <link rel="stylesheet" href="css/welcome.css">
         <link rel="stylesheet" href="css/toolBar.css">
@@ -37,6 +38,7 @@
         <?php include 'templates/welcome.php'?>
         <?php include 'templates/information.php'?>
         <?php include 'templates/loader.php'?>
+        <?php include 'templates/countdowns.php'?>
 
     </div>
 
@@ -45,6 +47,7 @@
 
 
         <script src="js/jquery.min.js"></script>
+        <script src="js/countdowns.js"></script>
         <script src="js/settings.js"></script>
         <script src="js/information.js"></script>
         <script src="js/toolBar.js"></script>
