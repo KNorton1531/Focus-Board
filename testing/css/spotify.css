@@ -7,6 +7,7 @@
     text-align: center;
     width: 500px;
     display: none;
+    user-select: none;
 }
 
 .spotifyWrapper{
@@ -24,11 +25,6 @@
     overflow: hidden;
     white-space: nowrap;
     text-align: left;
-}
-
-#spotifyContainer .settingsButton{
-    cursor: pointer;
-    margin-top: 10px;
 }
 
 #nowPlayingContainer{

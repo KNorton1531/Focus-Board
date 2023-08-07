@@ -13,22 +13,18 @@
     color: #fff;
     z-index: 1;
     display: none;
+    user-select: none;
 }
 
 #settingsContainer .closeButton{
     position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
+    top: 7px;
+    right: 7px;
+    padding: 2px 7px;
     cursor: pointer;
     color: #fff;
-}
-
-.settingsButton{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    cursor: pointer;
+    border: solid 2px #fff;
+    border-radius: 50%;
 }
 
 .settingsNavContainer{

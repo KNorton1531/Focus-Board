@@ -40,6 +40,7 @@
     border: solid 1px #fff;
     overflow-y: scroll;
     display: none;
+    user-select: none;
 }
 
 .blackout{

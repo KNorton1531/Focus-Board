@@ -22,22 +22,23 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
+        
     <div class="videoContainer">
         <video autoplay muted loop id="myVideo">
             <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4">
         </video>
     </div>
-        <div class="scene">
 
-            <?= include 'templates/spotifyContainer.php'?>
-            <?= include 'templates/settings.php'?>
-            <?php include 'templates/toolBar.php'?>
-            <?php include 'templates/welcome.php'?>
-            <?php include 'templates/information.php'?>
+    <div class="scene">
 
-        </div>
+        <?php include 'templates/spotifyContainer.php'?>
+        <?php include 'templates/settings.php'?>
+        <?php include 'templates/toolBar.php'?>
+        <?php include 'templates/welcome.php'?>
+        <?php include 'templates/information.php'?>
+        <?php include 'templates/loader.php'?>
 
-        <div onclick="ToggleSettings()" class="settingsButton">⚙️</div>
+    </div>
 
     </body>
 

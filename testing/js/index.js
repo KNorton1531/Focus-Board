@@ -3,21 +3,59 @@
     var spotifyContainer = new PlainDraggable(document.getElementById('spotifyContainer'),
     {handle: document.querySelector('#spotifyContainer .draggable')});
 
-    var spotifyContainer = new PlainDraggable(document.getElementById('welcomeDraggable'),
-    {handle: document.querySelector('#welcomeDraggable .draggable')});
-    
+    var welcomeContainer = new PlainDraggable(document.getElementById('welcomeDraggable'),
+    {handle: document.querySelector('#welcomeDraggable .draggable')});;
 
 
-  
-  function deleteDraggable(){
-    var draggable1 = document.getElementById('dragContainer2');
+    //****************************************** Handle container locations  ********************************************************/
 
-    if (draggable1.style.display === "none") {
-      draggable1.style.display = "block";
-    } else {
-      draggable1.style.display = "none";
+    welcomeContainer.onDragEnd = function(pointerXY) {
+      var transformValue = $('#welcomeDraggable').css('transform');
+      var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
+      var match = transformValue.match(regex);
+      
+      if (match) {
+          
+          var xValue = parseFloat(match[5]);  
+          var yValue = parseFloat(match[6]);  
+
+          var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+          positions.welcome = { x: xValue, y: yValue };
+          localStorage.setItem('positions', JSON.stringify(positions));
+
+        }
     }
+
+    spotifyContainer.onDragEnd = function(pointerXY) {
+      var transformValue = $('#spotifyContainer').css('transform');
+      var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
+      var match = transformValue.match(regex);
+  
+      if (match) {
+          var xValue = parseFloat(match[5]);  
+          var yValue = parseFloat(match[6]);  
+  
+          var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+          positions.spotify = { x: xValue, y: yValue };
+          localStorage.setItem('positions', JSON.stringify(positions));
+      }
   }
+  
+  $(document).ready(function() {
+      var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+  
+      if (positions.welcome) { 
+          $('#welcomeDraggable').css('transform', 'translate(' + positions.welcome.x + 'px,' + positions.welcome.y + 'px)');
+          $('#welcomeDraggable').css('display', 'block');
+      }
+  
+      if (positions.spotify) { 
+          $('#spotifyContainer').css('transform', 'translate(' + positions.spotify.x + 'px,' + positions.spotify.y + 'px)');
+          $('#spotifyContainer').css('display', 'block');
+      }
+  });
+
+    //****************************************** Handle container locations ENDS  ********************************************************/
 
   function ToggleSettings() {
     var x = document.getElementById("settingsContainer");

@@ -24,7 +24,9 @@
 
     <div class="infoTopic" style="line-height: 0.6; margin-bottom: 50px;">
         <h3>Planned Features</h3>
-        <p>• Save position of containers and remembers which ones are displayed</p>
+        <p>• Save size of containers</p>
+        <p>• Add tool tips and first time use intro</p>
+        <p>• Make containers fully responsive</p>
         <p>• Weather container</p>
         <p>• Timers container</p>
         <p>• Countdowns container</p>
