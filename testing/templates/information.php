@@ -30,7 +30,7 @@
         <p>• Weather container</p>
         <p>• Timers container</p>
         <p>• Countdowns container</p>
-        <p>• Save user settings</p>
+        <p>• User accounts to save settings</p>
         <p>• Ambient sounds for focus</p>
         <p>• Changeable backgrounds</p>
         <p>• Expandable toolbar</p>
@@ -44,6 +44,9 @@
         <h3>Known Bugs</h3>
         <p>• Containers hide on page resize</p>
         <p>• Spotify playback can be delayed by 3 seconds</p>
+        <p>• Spotify API errors when not linked or playing</p>
+        <p>• Spotify API should only run when container is active</p>
+        <p>• Strange dragging issues when inspect element is open</p>
 
         <!-- <p>• </p> -->
     </div>

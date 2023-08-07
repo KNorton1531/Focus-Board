@@ -25,13 +25,6 @@
                 <button class="submitName">Submit</button>
                 <button class="clearName"><i class="fa-solid fa-trash-can"></i></button>
             </div>
-
-            <div class="weatherLabel">Location for Weather</div>
-            <div class="weatherInputWrapper">
-                <input class="weatherInput" type="text">
-                <button class="submitWeather">Submit</button>
-                <button class="clearWeather"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
         </div>
 
     </div>
@@ -46,18 +39,18 @@
     </div>
 
     <div class="countdownTab tabContainer">
-   
+        <h5>Countdowns are being worked on</h5>
         <div class="countdown">
             <div class="countdownLabel">Countdown Title</div>
             <div class="nameInputWrapper">
-                <input class="nameInput" type="text">
+                <input class="countdowninput" type="text">
                 <button class="submitName">+</button>
                 <button class="clearName"><i class="fa-solid fa-trash-can"></i></button>
             </div>
 
             <div class="nameInputWrapper">
-            <div class="countdownLabel">Countdown Date</div>
-                <input class="nameInput" type="date">
+            <div class="countdownDateLabel">Countdown Date</div>
+                <input class="countdownDate" type="date">
                 <button class="submitName">+</button>
                 <button class="clearName"><i class="fa-solid fa-trash-can"></i></button>
             </div>
