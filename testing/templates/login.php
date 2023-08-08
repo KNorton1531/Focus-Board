@@ -86,50 +86,58 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    echo ('ID is: '.$_SESSION['id']);
-    echo ('Is the new column working?: '.$_SESSION["Testing"]);
-?> 
-<style>
-    .loginContent, .signupContent{
-        display: none;
-    }
-</style>
-<?php
-} else {
-    echo ('Logged Out');
-?>
-<style>
-    .signoutLink{
-        display: none;
-    }
-</style>
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?> 
+    <style>
+        .loginContent, .signupContent{
+            display: none;
+        }
+
+        #loginContainer{
+            padding: 35px;
+        }
+    </style>
+<?php } else { ?>
+    <style>
+        .loggedInContent{
+            display: none;
+        }
+    </style>
 <?php } ?>
 
     <div id="loginContainer">
-        <div class="draggable"></div>
         <div class="loginContent">
             <h2>Login</h2>
-            <p>Please fill in your credentials to login.</p>
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <div class="form-group">
+                <div class="usernameLogin">
                     <label>Username</label>
                     <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                    <span class="invalid-feedback"></span>
                 </div>    
-                <div class="form-group">
+                <div class="passwordLogin">
                     <label>Password</label>
                     <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                    <span class="invalid-feedback"></span>
                 </div>
-                <div class="form-group">
+                <div class="loginButton">
                     <input type="submit" class="btn btn-primary" value="Login">
                 </div>
                 <p>Don't have an account? <a class="signupLink" href="#">Sign up now</a>.</p>
             </form>
+            <div class="importantNote">
+                <p>Please <u>DO NOT</u> use any password you use elsewhere.</p> <p> While passwords are encrypted, validation and databases are being worked on.</p>
+                <p>There is no password reset yet. Make as many accounts as you want</p>
+            </div>
         </div>
 
-        <?php include 'templates/register.php'?>
-        <a href="logout.php" class="signoutLink">Log Out</a>
+        <?php 
+        if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) { 
+            include 'templates/register.php';
+        }
+        ?>
+
+        <div class="loggedInContent">
+            <img class="loginTick" src="assets/svg/tick.svg" alt="">
+            <h2>You are logged in as <?php echo $_SESSION["username"]; ?></h2>
+            <h4>Go to settings to configure your account</h4>
+            <a href="logout.php" class="signoutLink">Log Out</a>
+        </div>
     </div>

@@ -1,6 +1,7 @@
 <?php
 // Include config file
 require_once "DBconfig.php";
+
  
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -54,37 +55,45 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     
-    // Check input errors before inserting in database
+        // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-        
+            
         // Prepare an insert statement
-        // Insert all data needed for new account here
         $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-         
+            
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-            
+                
             // Set parameters
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
+                
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                header("location: index.php");
+                // Set session variables to log the user in
+                $_SESSION["loggedin"] = true;
+                $_SESSION["id"] = mysqli_insert_id($link); // Get the ID of the last inserted record
+                $_SESSION["username"] = $param_username;
+                    
+                // Redirect to a welcome or dashboard page
+                header("location: index.php"); // change 'index.php' to your desired landing page for logged-in users
+                exit; // Ensure no further processing after the redirect
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
-
+                
             // Close statement
             mysqli_stmt_close($stmt);
         }
     }
-    
-    // Close connection
-    mysqli_close($link);
-}
+
+        
+        // Close connection
+        mysqli_close($link);
+    }
+
+
 ?>
 
 <div class="signupContent hidden">

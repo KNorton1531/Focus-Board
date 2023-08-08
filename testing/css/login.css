@@ -1,11 +1,15 @@
 #loginContainer{
-    width: 500px;
+    width: 600px;
     border: solid #fff 1px;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
-    background-color: #101010e3;
+    background-color: #101010f5;
     color: #fff;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
 }
 
 #loginContainer a{
@@ -14,6 +18,15 @@
 
 .loginContent{
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginContent form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .signupContent{
@@ -22,4 +35,50 @@
 
 .hidden{
     display: none;
+}
+
+.usernameLogin{
+    width: 110%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.passwordLogin{
+    margin: 10px 0;
+    width: 110%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loginButton{
+
+}
+
+.loginButton input{
+    padding: 5px 20px;
+    background: transparent;
+    box-shadow: none;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.loginButton input:hover{
+    outline: 2px solid #fff;
+}
+
+.importantNote{
+    border: solid 1px #f00;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.loginTick{
+    height: 200px;
+    width: 200px;
+}
+
+.signoutLink{
+    margin-bottom: 20px;
 }

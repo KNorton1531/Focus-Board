@@ -9,8 +9,6 @@
     var countdownContainer = new PlainDraggable(document.getElementById('countdownContainer'),
     {handle: document.querySelector('#countdownContainer .draggable')});
 
-    var loginContainer = new PlainDraggable(document.getElementById('loginContainer'),
-    {handle: document.querySelector('#loginContainer .draggable')});
 
 
     //****************************************** Handle container locations  ********************************************************/
