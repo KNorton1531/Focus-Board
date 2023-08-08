@@ -15,6 +15,13 @@ $(document).ready(function(){
 
     $(".barIcon.countdown").click(function(){
         $("#countdownContainer").toggle();
+        console.log("working");
+        rememberDisplay();
+    });
+
+    $(".barIcon.login").click(function(){
+        $("#loginContainer").toggle();
+        console.log("working");
         rememberDisplay();
     });
 

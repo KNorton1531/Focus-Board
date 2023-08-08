@@ -8,6 +8,8 @@
 
     var countdownContainer = new PlainDraggable(document.getElementById('countdownContainer'),
     {handle: document.querySelector('#countdownContainer .draggable')});
+    var countdownContainer = new PlainDraggable(document.getElementById('loginContainer'),
+    {handle: document.querySelector('#loginContainer .draggable')});
 
 
     //****************************************** Handle container locations  ********************************************************/
@@ -72,7 +74,7 @@
           $('#spotifyContainer').css('display', 'block');
       }
 
-      if (positions.spotify) { 
+      if (positions.countdown) { 
         $('#countdownContainer').css('transform', 'translate(' + positions.countdown.x + 'px,' + positions.countdown.y + 'px)');
         $('#countdownContainer').css('display', 'block');
       }
@@ -176,3 +178,14 @@
     setWelcomeMessage();
     setInterval(setWelcomeMessage, 30000); 
 });
+
+$(".signupLink").click(function(){
+  $(".loginContent").addClass("hidden");
+  $(".signupContent").removeClass("hidden");
+});
+
+$(".loginLink").click(function(){
+  $(".loginContent").removeClass("hidden");
+  $(".signupContent").addClass("hidden");
+});
+

@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/countdown.css">
         <link rel="stylesheet" href="css/information.css">
         <link rel="stylesheet" href="css/welcome.css">
+        <link rel="stylesheet" href="css/login.css">
         <link rel="stylesheet" href="css/toolBar.css">
         <link rel="stylesheet" href="css/spotify.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +27,13 @@
         
     <div class="videoContainer">
         <video autoplay muted loop id="myVideo">
-            <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4">
+            <!-- <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4"> -->
         </video>
     </div>
 
     <div class="scene">
+
+        <?php include 'templates/login.php'?>
 
         <?php include 'templates/spotifyContainer.php'?>
         <?php include 'templates/settings.php'?>
@@ -39,6 +42,9 @@
         <?php include 'templates/information.php'?>
         <?php include 'templates/loader.php'?>
         <?php include 'templates/countdowns.php'?>
+        
+
+        
 
     </div>
 

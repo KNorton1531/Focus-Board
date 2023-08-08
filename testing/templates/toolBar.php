@@ -15,5 +15,9 @@
         <div class="barIcon countdown">
             <img src="assets/svg/calendar.svg" alt="">
         </div>
+
+        <div class="barIcon login">
+            <img src="assets/svg/account.svg" alt="">
+        </div>
     </div>
 </div>
