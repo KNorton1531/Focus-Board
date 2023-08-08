@@ -8,7 +8,8 @@
 
     var countdownContainer = new PlainDraggable(document.getElementById('countdownContainer'),
     {handle: document.querySelector('#countdownContainer .draggable')});
-    var countdownContainer = new PlainDraggable(document.getElementById('loginContainer'),
+
+    var loginContainer = new PlainDraggable(document.getElementById('loginContainer'),
     {handle: document.querySelector('#loginContainer .draggable')});
 
 

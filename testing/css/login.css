@@ -1,8 +1,15 @@
 #loginContainer{
     width: 500px;
-    border: solid red 1px;
+    border: solid #fff 1px;
     border-radius: 5px;
     text-align: center;
+    background-color: #101010e3;
+    color: #fff;
+    position: absolute;
+}
+
+#loginContainer a{
+    color: #fff;
 }
 
 .loginContent{

@@ -27,14 +27,13 @@
         
     <div class="videoContainer">
         <video autoplay muted loop id="myVideo">
-            <!-- <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4"> -->
+            <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4">
         </video>
     </div>
 
     <div class="scene">
 
         <?php include 'templates/login.php'?>
-
         <?php include 'templates/spotifyContainer.php'?>
         <?php include 'templates/settings.php'?>
         <?php include 'templates/toolBar.php'?>
@@ -42,15 +41,8 @@
         <?php include 'templates/information.php'?>
         <?php include 'templates/loader.php'?>
         <?php include 'templates/countdowns.php'?>
-        
-
-        
 
     </div>
-
-    </body>
-
-
 
         <script src="js/jquery.min.js"></script>
         <script src="js/countdowns.js"></script>

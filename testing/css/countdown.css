@@ -1,6 +1,5 @@
 #countdownContainer{
     width: 300px;
-    height: 300px;
     border: solid red 1px;
     border-radius: 10px;
     color: #fff;
@@ -8,8 +7,16 @@
     user-select: none;
     position: absolute;
     display: none;
+    position: absolute;
 }
 
 .countdownContent{
-    padding: 30px;
+    padding: 20px;
+}
+
+.countdownLogin{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

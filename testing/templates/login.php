@@ -86,9 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
-        // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    echo ('Logged In '.$_SESSION['username']);
     echo ('ID is: '.$_SESSION['id']);
     echo ('Is the new column working?: '.$_SESSION["Testing"]);
 ?> 
@@ -97,19 +95,16 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
         display: none;
     }
 </style>
-
 <?php
-
 } else {
     echo ('Logged Out');
-    ?><style>
-        .signoutLink{
-            display: none;
-        }
-    </style>
-<?}
-
 ?>
+<style>
+    .signoutLink{
+        display: none;
+    }
+</style>
+<?php } ?>
 
     <div id="loginContainer">
         <div class="draggable"></div>
@@ -117,22 +112,16 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
             <h2>Login</h2>
             <p>Please fill in your credentials to login.</p>
 
-            <?php 
-            if(!empty($login_err)){
-                echo '<div class="alert alert-danger">' . $login_err . '</div>';
-            }        
-            ?>
-
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                    <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                    <span class="invalid-feedback"></span>
                 </div>    
                 <div class="form-group">
                     <label>Password</label>
                     <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                    <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                    <span class="invalid-feedback"></span>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Login">
@@ -144,4 +133,3 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
         <?php include 'templates/register.php'?>
         <a href="logout.php" class="signoutLink">Log Out</a>
     </div>
- 
