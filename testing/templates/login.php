@@ -122,10 +122,6 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
                 </div>
                 <p>Don't have an account? <a class="signupLink" href="#">Sign up now</a>.</p>
             </form>
-            <div class="importantNote">
-                <p>Please <u>DO NOT</u> use any password you use elsewhere.</p> <p> While passwords are encrypted, validation and databases are being worked on.</p>
-                <p>There is no password reset yet. Make as many accounts as you want</p>
-            </div>
         </div>
 
         <?php 

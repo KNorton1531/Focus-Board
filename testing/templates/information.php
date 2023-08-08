@@ -34,7 +34,7 @@
         <p>• Ambient sounds for focus</p>
         <p>• Changeable backgrounds</p>
         <p>• Expandable toolbar</p>
-        <p>• Validation on user settings</p>
+        <p>• JS Validation on user settings</p>
         <p>• Themes</p>
         <p>• Easter Eggs</p>
         <!-- <p>• </p> -->
