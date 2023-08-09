@@ -1,6 +1,6 @@
 <?php
 
-
+ob_start(); // Start output buffering
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
  
@@ -85,6 +85,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
 }
+
+ob_end_flush(); // Send the buffered output
 
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?> 
     <style>

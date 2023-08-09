@@ -1,3 +1,33 @@
+<?php
+ob_start(); // Start output buffering
+session_start();
+
+// Include your configuration file
+require_once 'DBconfig.php'; 
+
+// Ensure the user is logged in before proceeding
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+
+    // Check if form data is set
+    if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['date']) && isset($_POST['title'])) {
+        $title = mysqli_real_escape_string($link, $_POST['title']);
+        $date = mysqli_real_escape_string($link, $_POST['date']);
+
+        // SQL query
+        $sql = "INSERT INTO countdowns (title, date) VALUES ('$title', '$date')";
+
+        if(mysqli_query($link, $sql)){
+            header("location: index.php");
+            exit; // This is crucial after a header redirect to stop script execution
+        } else {
+            echo "Error: " . mysqli_error($link);
+        }
+    }
+}
+
+ob_end_flush(); // Send the buffered output
+?>
+
 <div id="settingsContainer">
     <div onclick="ToggleSettings()" class="closeButton">X</div>
 
@@ -41,77 +71,28 @@
     <div class="countdownTab tabContainer">
         <h5>Countdowns are being worked on</h5>
         <div class="countdown">
-        <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
+        <?php
+        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
 
             <div class="countdownContent">
-
-                <?php
-                // LOCAL DETAILS
-                $host = 'localhost';
-                $db   = 'focus_board';
-                $user = 'root';
-                $pass = '';
-                $charset = 'utf8mb4';
-
-                // LIVE DETAILS
-                // $host = 'sql212.infinityfree.com';
-                // $db   = 'if0_34709976_focus_board';
-                // $user = 'if0_34709976';
-                // $pass = 'zs9Q8FIOu57';
-                // $charset = 'utf8mb4';
-
-                $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-                $options = [
-                    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    PDO::ATTR_EMULATE_PREPARES   => false,
-                ];
-
-                try {
-                    $pdo = new PDO($dsn, $user, $pass, $options);
-                } catch (\PDOException $e) {
-                    throw new \PDOException($e->getMessage(), (int)$e->getCode());
-                }
-
-                // Assuming user ID is stored in session after login
-                $currentUserId = $_SESSION['id'];
-
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
-                    // Insert date to database
-                    $stmt = $pdo->prepare('INSERT INTO countdowns (user_id, date) VALUES (?, ?)');
-                    $stmt->execute([$currentUserId, $_POST['date']]);
-                }
-
-                // Fetch dates for current user
-                $stmt = $pdo->prepare('SELECT date FROM countdowns WHERE user_id = ?');
-                $stmt->execute([$currentUserId]);
-                $dates = $stmt->fetchAll();
-                ?>
-                    <form action="" method="post">
-                        <label for="date">Add Date:</label>
-                        <input type="date" name="date" required>
-                        <input type="submit" value="Add">
-                    </form>
-
-                    <div class="dates-container">
-                        <h3>Your Dates:</h3>
-                        <ul>
-                        <?php foreach ($dates as $date) : ?>
-                            <li><?= htmlspecialchars($date['date']) ?></li>
-                        <?php endforeach; ?>
-                        </ul>
+                <form action="index.php" method="post">
+                    <div>
+                        <label for="title">Title:</label>
+                        <input type="text" name="title" id="title" required>
                     </div>
+                    <div>
+                        <label for="date">Date:</label>
+                        <input type="date" name="date" id="date" required>
+                    </div>
+                    <div>
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
             </div>
 
-            <?php } else {?>
-            <!-- If logged out, do this -->
-            <div class="countdownLogin">
-            <h4>Please log in to use countdowns</h4>
-            </div>
-
-
+        <?php } else { ?>
+            <!-- Display some content or message for non-logged-in users or redirect them -->
         <?php } ?>
         </div>
-
     </div>
 </div>

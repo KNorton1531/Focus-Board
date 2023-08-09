@@ -33,7 +33,13 @@
 
     <div class="scene">
 
-        <?php include 'templates/login.php'?>
+        <?php
+        session_start();
+
+        if(!isset($_SESSION["loggedin"])) {
+            include 'templates/login.php';
+        }?>
+
         <?php include 'templates/spotifyContainer.php'?>
         <?php include 'templates/settings.php'?>
         <?php include 'templates/toolBar.php'?>
