@@ -1,5 +1,5 @@
 #countdownContainer{
-    width: 300px;
+
     border: solid red 1px;
     border-radius: 10px;
     color: #fff;
@@ -14,6 +14,12 @@
     padding: 20px;
 }
 
+.countdownTitle{
+    font-size: 28px;
+    margin: 10px 0;
+    text-align: center;
+}
+
 .countdownLogin{
     padding: 20px;
     display: flex;
@@ -21,3 +27,49 @@
     justify-content: center;
 }
 
+.countdownItem{
+    margin: 10px 0 50px 0;
+}
+
+.dateItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px #fff;
+    border-radius: 5px;
+    padding: 10px;
+    flex: 1 1 0;
+    width: 70px;
+}
+
+.countdownDate{
+    display: flex;
+    gap: 20px;
+}
+
+#months, #weeks, #days, #hours #minues, #seconds{
+}
+
+#months{
+
+}
+
+#weeks{
+
+}
+
+#days{
+
+}
+
+#hours{
+
+}
+
+#minutes{
+
+}
+
+#seconds{
+
+}
