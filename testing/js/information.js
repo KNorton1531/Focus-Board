@@ -15,3 +15,7 @@ $('.blackout').click(function(){
     $(".blackout").hide();
     $(".closeInfo").hide();
 });
+
+tippy('.informationIcon', {
+    content: 'Site Info',
+  });

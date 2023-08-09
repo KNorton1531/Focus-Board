@@ -54,3 +54,25 @@ function initContainer() {
     $('#welcomeDraggable').css('display', displayStates.welcome);
     $('#countdownContainer').css('display', displayStates.countdown);
 }
+////////////////////////////////////////////////////  Tool Tips  //////////////////////////////////////////////////////////////////////////////////
+
+
+tippy('.barIcon.settings', {
+    content: 'Settings',
+  });
+
+  tippy('.barIcon.spotify', {
+    content: 'Spotify player',
+  });
+
+  tippy('.barIcon.welcome', {
+    content: 'Toggle welcome',
+  });
+
+  tippy('.barIcon.countdown', {
+    content: 'Countdowns',
+  });
+
+  tippy('.barIcon.login', {
+    content: 'Accounts',
+  });

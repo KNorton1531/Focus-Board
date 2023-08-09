@@ -27,7 +27,7 @@
         
     <div class="videoContainer">
         <video autoplay muted loop id="myVideo">
-            <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4">
+            <!-- <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4"> -->
         </video>
     </div>
 
@@ -42,8 +42,29 @@
         <?php include 'templates/loader.php'?>
         <?php include 'templates/countdowns.php'?>
 
+        <!-- Handle showing elements depending on login status -->
+        <?php
+        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?> 
+            <style>
+                .hideLoggedIn{
+                    display: none;
+                }
+
+            </style>
+
+        <php }  else {?>
+            <style>
+                .hideLoggedOut{
+                    display: none;
+                }
+
+            </style>
+        <?php } ?>
+
     </div>
 
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/countdowns.js"></script>
         <script src="js/settings.js"></script>
