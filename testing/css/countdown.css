@@ -47,6 +47,15 @@
     gap: 20px;
 }
 
+.presetCountdown{
+    height: 200px;
+    border: solid #fff 1px;
+    border-radius: 5px;
+    position: absolute;
+    background-color: #101010e3;
+    color: #fff;
+}
+
 #months, #weeks, #days, #hours #minues, #seconds{
 }
 
@@ -72,4 +81,8 @@
 
 #seconds{
 
+}
+
+#christmasCountdown, #HalloweenCountdown, #BonfireCountdown, #NewYearCountdown{
+    display: none;
 }

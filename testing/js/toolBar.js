@@ -34,12 +34,20 @@ function rememberDisplay(){
     var spotifyDisplay = $('#spotifyContainer').css('display');
     var welcomeDisplay = $('#welcomeDraggable').css('display');
     var countdownDisplay = $('#countdownContainer').css('display');
+    var christmasCountdown = $('#christmasCountdown').css('display');
+    var HalloweenCountdown = $('#HalloweenCountdown').css('display');
+    var BonfireCountdown = $('#BonfireCountdown').css('display');
+    var NewYearCountdown = $('#NewYearCountdown').css('display');
 
     // Store the states in an object
     var displayStates = {
         spotify: spotifyDisplay,
         welcome: welcomeDisplay,
-        countdown: countdownDisplay
+        countdown: countdownDisplay,
+        christmas: christmasCountdown,
+        halloween: HalloweenCountdown,
+        bonfire: BonfireCountdown,
+        newyear: NewYearCountdown
     };
 
     // Save the object to localStorage as a JSON string
@@ -53,6 +61,10 @@ function initContainer() {
     $('#spotifyContainer').css('display', displayStates.spotify);
     $('#welcomeDraggable').css('display', displayStates.welcome);
     $('#countdownContainer').css('display', displayStates.countdown);
+    $('#christmasCountdown').css('display', displayStates.christmas);
+    $('#HalloweenCountdown').css('display', displayStates.halloween);
+    $('#BonfireCountdown').css('display', displayStates.bonfire);
+    $('#NewYearCountdown').css('display', displayStates.newyear);
 }
 ////////////////////////////////////////////////////  Tool Tips  //////////////////////////////////////////////////////////////////////////////////
 

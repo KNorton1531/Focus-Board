@@ -27,7 +27,7 @@
         
     <div class="videoContainer">
         <video autoplay muted loop id="myVideo">
-            <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4">
+            <!-- <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4"> -->
         </video>
     </div>
 
@@ -69,15 +69,15 @@
 
     </div>
 
-    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
-    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+        <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/countdowns.js"></script>
         <script src="js/settings.js"></script>
         <script src="js/information.js"></script>
         <script src="js/toolBar.js"></script>
-        <script src="js/plain-draggable.min.js"></script>
         <script src="js/index.js" defer></script>
         <script src="js/spotifyAPI.js" defer></script>
+        <script src="js/plain-draggable.js"></script>
     </body>
 </html>

@@ -12,7 +12,7 @@
     justify-content: space-between;
     color: #fff;
     z-index: 1;
-    display: none;
+    display: flex;
     user-select: none;
 }
 
@@ -124,6 +124,31 @@
     display: none;
 }
 
+.countdown{
+    overflow-y: scroll;
+    height: 90%;
+}
+
+.countdown::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #000000;
+    border-radius: 5px;
+}
+
+.countdown::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #d8d8d8;
+    border-radius: 10%;
+}
+
+.countdown::-webkit-scrollbar-thumb
+{
+	background-color: #eeeeee;
+    border-radius: 10%;
+}
+
 .countdownLabel{
 
 }
@@ -135,4 +160,27 @@
 .settingsItem{
     padding: 0px 10px;
     margin-bottom: 10px;
+}
+
+.christmasCountdown{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.christmasCountdown button{
+    padding: 5px;
+    background: #1c1c1c;
+    border: solid 1px #fff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.christmasCountdown button img{
+    height: 25px;
+}
+
+.christmasCountdown h3{
+    margin: 0;
 }

@@ -9,6 +9,33 @@
     var countdownContainer = new PlainDraggable(document.getElementById('countdownContainer'),
     {handle: document.querySelector('#countdownContainer .draggable')});
 
+    var christmasCountdown = new PlainDraggable(document.getElementById('christmasCountdown'));
+
+    draggable = new PlainDraggable(document.getElementById('christmasCountdown'),{
+      // parent container 
+      containment: 'window',
+      // enable the snap functionality
+      snap: undefined,
+      // drag handle element
+      handle: '',
+      // CSS z-index property
+      zIndex: 9000,
+      // distance between element and left
+      left: undefined,
+      // distance between element and top
+      top: undefined
+      
+    });
+
+    var HalloweenCountdown = new PlainDraggable(document.getElementById('HalloweenCountdown'),
+    {handle: document.querySelector('#HalloweenCountdown .draggable')});
+
+    var BonfireCountdown = new PlainDraggable(document.getElementById('BonfireCountdown'),
+    {handle: document.querySelector('#BonfireCountdown .draggable')});
+
+    var NewYearCountdown = new PlainDraggable(document.getElementById('NewYearCountdown'),
+    {handle: document.querySelector('#NewYearCountdown .draggable')});
+
 
 
     //****************************************** Handle container locations  ********************************************************/
@@ -59,6 +86,75 @@
         localStorage.setItem('positions', JSON.stringify(positions));
     }
 }
+
+/////////////////////////////////////////////////////  Countdown Containers  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+christmasCountdown.onDragEnd = function(pointerXY) {
+  var transformValue = $('#christmasCountdown').css('transform');
+  var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
+  var match = transformValue.match(regex);
+
+  if (match) {
+      var xValue = parseFloat(match[5]);  
+      var yValue = parseFloat(match[6]);  
+
+      var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+      positions.christmas = { x: xValue, y: yValue };
+      localStorage.setItem('positions', JSON.stringify(positions));
+  }
+}
+
+HalloweenCountdown.onDragEnd = function(pointerXY) {
+  var transformValue = $('#HalloweenCountdown').css('transform');
+  var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
+  var match = transformValue.match(regex);
+
+  if (match) {
+      var xValue = parseFloat(match[5]);  
+      var yValue = parseFloat(match[6]);  
+
+      var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+      positions.halloween = { x: xValue, y: yValue };
+      localStorage.setItem('positions', JSON.stringify(positions));
+  }
+}
+
+BonfireCountdown.onDragEnd = function(pointerXY) {
+  var transformValue = $('#BonfireCountdown').css('transform');
+  var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
+  var match = transformValue.match(regex);
+
+  if (match) {
+      var xValue = parseFloat(match[5]);  
+      var yValue = parseFloat(match[6]);  
+
+      var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+      positions.bonfire = { x: xValue, y: yValue };
+      localStorage.setItem('positions', JSON.stringify(positions));
+  }
+}
+
+NewYearCountdown.onDragEnd = function(pointerXY) {
+  var transformValue = $('#NewYearCountdown').css('transform');
+  var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
+  var match = transformValue.match(regex);
+
+  if (match) {
+      var xValue = parseFloat(match[5]);  
+      var yValue = parseFloat(match[6]);  
+
+      var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+      positions.newyear = { x: xValue, y: yValue };
+      localStorage.setItem('positions', JSON.stringify(positions));
+  }
+}
+
+
+
+
+
+/////////////////////////////////////////////////////  Countdown Containers  ////////////////////////////////////////////////////////////////////////////////////////////////
+
   
   $(document).ready(function() {
       var positions = JSON.parse(localStorage.getItem('positions') || '{}');
@@ -76,6 +172,26 @@
       if (positions.countdown) { 
         $('#countdownContainer').css('transform', 'translate(' + positions.countdown.x + 'px,' + positions.countdown.y + 'px)');
         $('#countdownContainer').css('display', 'block');
+      }
+
+      if (positions.christmas) { 
+        $('#christmasCountdown').css('transform', 'translate(' + positions.christmas.x + 'px,' + positions.christmas.y + 'px)');
+        $('#christmasCountdown').css('display', 'block');
+      }
+
+      if (positions.halloween) { 
+        $('#HalloweenCountdown').css('transform', 'translate(' + positions.halloween.x + 'px,' + positions.halloween.y + 'px)');
+        $('#HalloweenCountdown').css('display', 'block');
+      }
+
+      if (positions.bonfire) { 
+        $('#BonfireCountdown').css('transform', 'translate(' + positions.bonfire.x + 'px,' + positions.bonfire.y + 'px)');
+        $('#BonfireCountdown').css('display', 'block');
+      }
+
+      if (positions.newyear) { 
+        $('#NewYearCountdown').css('transform', 'translate(' + positions.newyear.x + 'px,' + positions.newyear.y + 'px)');
+        $('#NewYearCountdown').css('display', 'block');
       }
   });
 

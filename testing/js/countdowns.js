@@ -33,3 +33,66 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const interval = setInterval(updateCountdown, 1000);
 });
+
+$("#christmasVis").click(function(){
+    $("#christmasCountdown").toggle();
+    rememberDisplay();
+});
+
+$("#halloweenVis").click(function(){
+    $("#HalloweenCountdown").toggle();
+    rememberDisplay();
+});
+
+$("#bonfireVis").click(function(){
+    $("#BonfireCountdown").toggle();
+    rememberDisplay();
+});
+
+$("#newyearsVis").click(function(){
+    $("#NewYearCountdown").toggle();
+    rememberDisplay();
+});
+
+function updateButtonIcon(button, targetElement) {
+    var buttonImg = button.find('img');
+    if (targetElement.css('display') === 'none') {
+        buttonImg.attr('src', 'assets/svg/visibilityOff.svg');
+    } else {
+        buttonImg.attr('src', 'assets/svg/visibilityOn.svg');
+    }
+}
+
+function bindButtonEventListener(buttonId, targetId) {
+    var button = $(buttonId);
+    var targetElement = $(targetId);
+
+    // Update the button's icon on click
+    button.click(function() {
+        updateButtonIcon(button, targetElement);
+    });
+}
+
+function updateIconsOnPageLoad(buttonId, targetId) {
+    setTimeout(function() {
+        var button = $(buttonId);
+        var targetElement = $(targetId);
+        updateButtonIcon(button, targetElement);
+    }, 1100);
+}
+
+$(document).ready(function() {
+    // Bind events on page load
+    bindButtonEventListener('#christmasVis', '#christmasCountdown');
+    bindButtonEventListener('#halloweenVis', '#HalloweenCountdown');
+    bindButtonEventListener('#bonfireVis', '#BonfireCountdown');
+    bindButtonEventListener('#newyearsVis', '#NewYearCountdown');
+
+    // Update icons 1.1 seconds after page load
+    updateIconsOnPageLoad('#christmasVis', '#christmasCountdown');
+    updateIconsOnPageLoad('#halloweenVis', '#HalloweenCountdown');
+    updateIconsOnPageLoad('#bonfireVis', '#BonfireCountdown');
+    updateIconsOnPageLoad('#newyearsVis', '#NewYearCountdown');
+});
+
+
