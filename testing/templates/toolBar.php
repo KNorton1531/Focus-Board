@@ -19,5 +19,9 @@
         <div class="barIcon login">
             <img src="assets/svg/account.svg" alt="">
         </div>
+
+        <div class="barIcon weather">
+            <img src="assets/svg/weather.svg" alt="">
+        </div>
     </div>
 </div>

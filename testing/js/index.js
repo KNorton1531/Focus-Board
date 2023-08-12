@@ -9,23 +9,11 @@
     var countdownContainer = new PlainDraggable(document.getElementById('countdownContainer'),
     {handle: document.querySelector('#countdownContainer .draggable')});
 
-    var christmasCountdown = new PlainDraggable(document.getElementById('christmasCountdown'));
+    var weatherContainer = new PlainDraggable(document.getElementById('weatherContainer'),
+    {handle: document.querySelector('#weatherContainer .draggable')});
 
-    draggable = new PlainDraggable(document.getElementById('christmasCountdown'),{
-      // parent container 
-      containment: 'window',
-      // enable the snap functionality
-      snap: undefined,
-      // drag handle element
-      handle: '',
-      // CSS z-index property
-      zIndex: 9000,
-      // distance between element and left
-      left: undefined,
-      // distance between element and top
-      top: undefined
-      
-    });
+    var christmasCountdown = new PlainDraggable(document.getElementById('christmasCountdown'),
+    {handle: document.querySelector('#christmasCountdown .draggable')});
 
     var HalloweenCountdown = new PlainDraggable(document.getElementById('HalloweenCountdown'),
     {handle: document.querySelector('#HalloweenCountdown .draggable')});
@@ -35,6 +23,7 @@
 
     var NewYearCountdown = new PlainDraggable(document.getElementById('NewYearCountdown'),
     {handle: document.querySelector('#NewYearCountdown .draggable')});
+
 
 
 
@@ -57,23 +46,8 @@
         }
     }
 
-    spotifyContainer.onDragEnd = function(pointerXY) {
-      var transformValue = $('#spotifyContainer').css('transform');
-      var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
-      var match = transformValue.match(regex);
-  
-      if (match) {
-          var xValue = parseFloat(match[5]);  
-          var yValue = parseFloat(match[6]);  
-  
-          var positions = JSON.parse(localStorage.getItem('positions') || '{}');
-          positions.spotify = { x: xValue, y: yValue };
-          localStorage.setItem('positions', JSON.stringify(positions));
-      }
-  }
-
-  countdownContainer.onDragEnd = function(pointerXY) {
-    var transformValue = $('#countdownContainer').css('transform');
+spotifyContainer.onDragEnd = function(pointerXY) {
+    var transformValue = $('#spotifyContainer').css('transform');
     var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
     var match = transformValue.match(regex);
 
@@ -82,9 +56,39 @@
         var yValue = parseFloat(match[6]);  
 
         var positions = JSON.parse(localStorage.getItem('positions') || '{}');
-        positions.countdown = { x: xValue, y: yValue };
+        positions.spotify = { x: xValue, y: yValue };
         localStorage.setItem('positions', JSON.stringify(positions));
     }
+}
+
+countdownContainer.onDragEnd = function(pointerXY) {
+  var transformValue = $('#countdownContainer').css('transform');
+  var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
+  var match = transformValue.match(regex);
+
+  if (match) {
+      var xValue = parseFloat(match[5]);  
+      var yValue = parseFloat(match[6]);  
+
+      var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+      positions.countdown = { x: xValue, y: yValue };
+      localStorage.setItem('positions', JSON.stringify(positions));
+  }
+}
+
+weatherContainer.onDragEnd = function(pointerXY) {
+  var transformValue = $('#weatherContainer').css('transform');
+  var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
+  var match = transformValue.match(regex);
+
+  if (match) {
+      var xValue = parseFloat(match[5]);  
+      var yValue = parseFloat(match[6]);  
+
+      var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+      positions.weather = { x: xValue, y: yValue };
+      localStorage.setItem('positions', JSON.stringify(positions));
+  }
 }
 
 /////////////////////////////////////////////////////  Countdown Containers  ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -192,6 +196,11 @@ NewYearCountdown.onDragEnd = function(pointerXY) {
       if (positions.newyear) { 
         $('#NewYearCountdown').css('transform', 'translate(' + positions.newyear.x + 'px,' + positions.newyear.y + 'px)');
         $('#NewYearCountdown').css('display', 'block');
+      }
+
+      if (positions.weather) { 
+        $('#weatherContainer').css('transform', 'translate(' + positions.weather.x + 'px,' + positions.weather.y + 'px)');
+        $('#weatherContainer').css('display', 'block');
       }
   });
 

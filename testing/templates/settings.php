@@ -40,7 +40,7 @@
 
     <div class="countdownTab tabContainer">
         <h5>Countdowns are being worked on</h5>
-        <div class="countdown">
+        <div class="countdownSettings">
         <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
 
             <div class="countdownContent">
@@ -106,7 +106,7 @@
                     </div>
 
                 <div class="presetCountdowns">
-                    <h4>Preset countdowns</h4>
+                    <h3>Preset countdowns</h3>
 
                     <div class="christmasCountdown">
                             <h3>Christmas</h3>

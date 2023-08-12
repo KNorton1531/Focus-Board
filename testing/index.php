@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/weather.css">
         <link rel="stylesheet" href="css/countdown.css">
         <link rel="stylesheet" href="css/information.css">
         <link rel="stylesheet" href="css/welcome.css">
@@ -41,6 +42,7 @@
         }?>
 
         <?php include 'templates/spotifyContainer.php'?>
+        <?php include 'templates/weather.php'?>
         <?php include 'templates/settings.php'?>
         <?php include 'templates/toolBar.php'?>
         <?php include 'templates/welcome.php'?>

@@ -25,6 +25,12 @@ $(document).ready(function(){
         rememberDisplay();
     });
 
+    $(".barIcon.weather").click(function(){
+        $("#weatherContainer").toggle();
+        console.log("working");
+        rememberDisplay();
+    });
+
     setTimeout(initContainer, 1000);
 
 });
@@ -38,6 +44,7 @@ function rememberDisplay(){
     var HalloweenCountdown = $('#HalloweenCountdown').css('display');
     var BonfireCountdown = $('#BonfireCountdown').css('display');
     var NewYearCountdown = $('#NewYearCountdown').css('display');
+    var weatherContainer = $('#weatherContainer').css('display');
 
     // Store the states in an object
     var displayStates = {
@@ -47,7 +54,8 @@ function rememberDisplay(){
         christmas: christmasCountdown,
         halloween: HalloweenCountdown,
         bonfire: BonfireCountdown,
-        newyear: NewYearCountdown
+        newyear: NewYearCountdown,
+        weather: weatherContainer
     };
 
     // Save the object to localStorage as a JSON string
@@ -65,6 +73,7 @@ function initContainer() {
     $('#HalloweenCountdown').css('display', displayStates.halloween);
     $('#BonfireCountdown').css('display', displayStates.bonfire);
     $('#NewYearCountdown').css('display', displayStates.newyear);
+    $('#weatherContainer').css('display', displayStates.weather);
 }
 ////////////////////////////////////////////////////  Tool Tips  //////////////////////////////////////////////////////////////////////////////////
 

@@ -3520,14 +3520,14 @@ pointerEvent.addMoveHandler(document, function (pointerXY) {
       if (activeProps) {
         checkInitBBox(activeProps, event.type);
         pointerEvent.move();
-        initDoneItems[activeProps._id] = true;
+        initDoneItems[activeProps._id] = false;
       }
 
       clearTimeout(lazyInitTimer);
       lazyInitTimer = setTimeout(function () {
         initAll(event.type);
       }, LAZY_INIT_DELAY);
-      layoutChanging = false;
+      layoutChanging = true;
     });
     window.addEventListener('resize', layoutChange, true);
     window.addEventListener('scroll', layoutChange, true);
