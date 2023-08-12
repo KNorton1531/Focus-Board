@@ -313,3 +313,7 @@ $(".loginLink").click(function(){
   $(".signupContent").addClass("hidden");
 });
 
+$('.closeAccount').click(function(){
+  $("#loginContainer").hide();
+});
+

@@ -46,21 +46,11 @@
             <div class="countdownContent">
 
                 <?php
-                // LOCAL DETAILS
-                $host = 'localhost';
-                $db   = 'focus_board';
-                $user = 'root';
-                $pass = '';
+                include 'DBconfig.php';
+
                 $charset = 'utf8mb4';
 
-                // LIVE DETAILS
-                // $host = 'sql212.infinityfree.com';
-                // $db   = 'if0_34709976_focus_board';
-                // $user = 'if0_34709976';
-                // $pass = 'zs9Q8FIOu57';
-                // $charset = 'utf8mb4';
-
-                $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+                $dsn = "mysql:host=".DB_SERVER.";dbname=".DB_NAME.";charset=$charset";
                 $options = [
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -68,7 +58,7 @@
                 ];
 
                 try {
-                    $pdo = new PDO($dsn, $user, $pass, $options);
+                    $pdo = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $options);
                 } catch (\PDOException $e) {
                     throw new \PDOException($e->getMessage(), (int)$e->getCode());
                 }

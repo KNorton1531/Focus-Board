@@ -95,6 +95,7 @@
         ?>
 
         <div class="loggedInContent">
+        <div class="closeAccount">x</div>
             <img class="loginTick" src="assets/svg/tick.svg" alt="">
             <h2>You are logged in as <?php echo $_SESSION["username"]; ?></h2>
             <h4>Go to settings to configure your account</h4>

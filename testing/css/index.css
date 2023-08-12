@@ -77,3 +77,16 @@ body{
     transform: translate(-50%, -50%);
     z-index: 0;
 }
+
+.closeAccount{
+    padding: 5px;
+    position: absolute;
+    top: 2%;
+    right: 1.6%;
+    padding: 4px 10px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    z-index: 3;
+    cursor: pointer;
+}
