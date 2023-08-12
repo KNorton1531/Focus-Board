@@ -42,11 +42,9 @@
 
     <div class="infoTopic" style="line-height: 0.6; margin-bottom: 50px;">
         <h3>Known Bugs</h3>
-        <p>• Containers hide on page resize</p>
         <p>• Spotify playback can be delayed by 3 seconds</p>
         <p>• Spotify API errors when not linked or playing</p>
         <p>• Spotify API should only run when container is active</p>
-        <p>• Strange dragging issues when inspect element is open</p>
 
         <!-- <p>• </p> -->
     </div>

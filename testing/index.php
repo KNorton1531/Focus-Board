@@ -28,7 +28,7 @@
         
     <div class="videoContainer">
         <video autoplay muted loop id="myVideo">
-            <!-- <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4"> -->
+            <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -41,14 +41,66 @@
             include 'templates/login.php';
         }?>
 
-        <?php include 'templates/spotifyContainer.php'?>
-        <?php include 'templates/weather.php'?>
-        <?php include 'templates/settings.php'?>
-        <?php include 'templates/toolBar.php'?>
-        <?php include 'templates/welcome.php'?>
-        <?php include 'templates/information.php'?>
-        <?php include 'templates/loader.php'?>
-        <?php include 'templates/countdowns.php'?>
+        <?php include 'templates/spotifyContainer.php';?>
+        <?php include 'templates/weather.php';?>
+        <?php include 'templates/settings.php';?>
+        <?php include 'templates/toolBar.php';?>
+        <?php include 'templates/welcome.php';?>
+        <?php include 'templates/information.php';?>
+        <?php include 'templates/loader.php';?>
+        <?php include 'templates/countdowns.php';
+
+        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?> 
+            <style>
+                .loginContent, .signupContent{
+                    display: none;
+                }
+
+                #loginContainer{
+                    padding: 35px;
+                }
+            </style>
+        <?php } else { ?>
+            <style>
+                .loggedInContent{
+                    display: none;
+                }
+            </style>
+        <?php } ?>
+
+    <div id="loginContainer">
+        <div class="loginContent">
+            <h2>Login</h2>
+
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="usernameLogin">
+                    <label>Username</label>
+                    <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                </div>    
+                <div class="passwordLogin">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                </div>
+                <div class="loginButton">
+                    <input type="submit" class="btn btn-primary" value="Login">
+                </div>
+                <p>Don't have an account? <a class="signupLink" href="#">Sign up now</a>.</p>
+            </form>
+        </div>
+
+        <?php 
+        if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) { 
+            include 'templates/register.php';
+        }
+        ?>
+
+        <div class="loggedInContent">
+            <img class="loginTick" src="assets/svg/tick.svg" alt="">
+            <h2>You are logged in as <?php echo $_SESSION["username"]; ?></h2>
+            <h4>Go to settings to configure your account</h4>
+            <a href="logout.php" class="signoutLink">Log Out</a>
+        </div>
+    </div>
 
         <!-- Handle showing elements depending on login status -->
         <?php
