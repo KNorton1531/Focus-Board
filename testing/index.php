@@ -35,7 +35,6 @@
     <div class="scene">
 
         <?php
-        session_start();
 
         if(!isset($_SESSION["loggedin"])) {
             include 'templates/login.php';

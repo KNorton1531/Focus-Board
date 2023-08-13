@@ -1,13 +1,10 @@
 <?php
-
-ob_start(); // Start output buffering
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
  
 // Include config file
 require_once "DBconfig.php";
 
 session_start();
+ob_start();
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -66,6 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             // Redirect user to welcome page
                             header("location: index.php");
+                            exit;
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
@@ -87,3 +85,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 ob_end_flush(); // Send the buffered output
+
+?>

@@ -1,15 +1,28 @@
 <?php
+
+
 // Include config file
 require_once "DBconfig.php";
 
+session_start();
+ob_start();
  
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
+$first_name = "";
+$first_name_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+
+    // Validate first name
+    if(!isset($_POST["first_name"]) || empty(trim($_POST["first_name"]))){
+        $first_name_err = "Please enter your first name.";
+    } else {
+        $first_name = trim($_POST["first_name"]);
+    }
+
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
@@ -59,15 +72,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
             
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO users (username, password, first_name) VALUES (?, ?, ?)";
+
             
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_first_name);
                 
             // Set parameters
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_first_name = $first_name;
                 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -78,9 +93,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     
                 // Redirect to a welcome or dashboard page
                 header("location: index.php"); // change 'index.php' to your desired landing page for logged-in users
-                exit; // Ensure no further processing after the redirect
+                exit;
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Error: " . mysqli_error($link);
             }
                 
             // Close statement
@@ -93,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         mysqli_close($link);
     }
 
-
+    ob_end_flush(); // Send the buffered output
 ?>
 
 <div class="signupContent hidden">
@@ -106,6 +121,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <label>Username</label>
             <input type="text" name="username" class="form-control <?php //echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php //echo $username; ?>">
         </div>    -->
+
+        <div class="passwordLogin">
+            <label>First Name</label>
+            <input type="text" name="first_name" class="form-control <?php echo (!empty($first_name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $first_name; ?>">
+        </div>
+
         
         <div class="passwordLogin">
             <label>Username</label>
