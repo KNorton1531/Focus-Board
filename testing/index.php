@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/weather.css">
+        <link rel="stylesheet" href="css/timer.css">
         <link rel="stylesheet" href="css/countdown.css">
         <link rel="stylesheet" href="css/information.css">
         <link rel="stylesheet" href="css/welcome.css">
@@ -42,6 +43,7 @@
 
         <?php include 'templates/spotifyContainer.php';?>
         <?php include 'templates/weather.php';?>
+        <?php include 'templates/timer.php';?>
         <?php include 'templates/settings.php';?>
         <?php include 'templates/toolBar.php';?>
         <?php include 'templates/welcome.php';?>
@@ -127,6 +129,7 @@
         <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/countdowns.js"></script>
+        <script src="js/timer.js"></script>
         <script src="js/settings.js"></script>
         <script src="js/information.js"></script>
         <script src="js/toolBar.js"></script>

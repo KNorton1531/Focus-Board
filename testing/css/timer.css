@@ -1,0 +1,116 @@
+#timerContainer {
+    font-family: 'Arial', sans-serif;
+    background: rgba(0, 0, 0, 0.88);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.2px);
+    -webkit-backdrop-filter: blur(8.2px);
+    color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    width: 355px;
+}
+
+.timerContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 35px 20px 35px;
+}
+
+.time-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.time-control button{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+#display {
+    margin: 0 20px;
+    font-size: 24px;
+}
+
+.saveConfirm{
+    position: absolute;
+    top: 2%;
+    right: -10px;
+    color: #73ff7c;
+    display: none;
+}
+
+.timer-actions{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.timerOptions{
+    display: none;
+    text-align: center;
+}
+
+#alarmSet{
+    margin-left: 25px;
+}
+
+#loopCheckbox{
+    margin-left: 20px;
+}
+
+.timerOptions hr{
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+
+.showOptions{
+    cursor: pointer;
+    font-size: 24px;
+    border: #fff solid 1px;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.timer-actions img{
+    height: 30px;
+}
+
+.time-settings{
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.timer-actions button {
+    margin: 0 2px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+#inputDisplay {
+    border: none;
+    padding: 5px;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    font-size: 48px;
+    background: transparent;
+    color: #fff;
+}
+
+#saveTime{
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+

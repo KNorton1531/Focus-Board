@@ -23,5 +23,9 @@
         <div class="barIcon weather">
             <img src="assets/svg/weather.svg" alt="">
         </div>
+
+        <div class="barIcon timer">
+            <img src="assets/svg/timer.svg" alt="">
+        </div>
     </div>
 </div>

@@ -6,6 +6,12 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+button{
+    background: transparent;
+    border: #fff 1px solid;
+    color: #fff;
+}
+
 #myVideo {
     position: fixed;
     right: 0;

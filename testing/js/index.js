@@ -24,6 +24,9 @@
     var NewYearCountdown = new PlainDraggable(document.getElementById('NewYearCountdown'),
     {handle: document.querySelector('#NewYearCountdown .draggable')});
 
+    var timerContainer = new PlainDraggable(document.getElementById('timerContainer'),
+    {handle: document.querySelector('#timerContainer .draggable')});
+
 
 
 
@@ -90,6 +93,22 @@ weatherContainer.onDragEnd = function(pointerXY) {
       localStorage.setItem('positions', JSON.stringify(positions));
   }
 }
+
+timerContainer.onDragEnd = function(pointerXY) {
+  var transformValue = $('#timerContainer').css('transform');
+  var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
+  var match = transformValue.match(regex);
+
+  if (match) {
+      var xValue = parseFloat(match[5]);  
+      var yValue = parseFloat(match[6]);  
+
+      var positions = JSON.parse(localStorage.getItem('positions') || '{}');
+      positions.timer = { x: xValue, y: yValue };
+      localStorage.setItem('positions', JSON.stringify(positions));
+  }
+}
+
 
 /////////////////////////////////////////////////////  Countdown Containers  ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -201,6 +220,11 @@ NewYearCountdown.onDragEnd = function(pointerXY) {
       if (positions.weather) { 
         $('#weatherContainer').css('transform', 'translate(' + positions.weather.x + 'px,' + positions.weather.y + 'px)');
         $('#weatherContainer').css('display', 'block');
+      }
+
+      if (positions.timer) { 
+        $('#timerContainer').css('transform', 'translate(' + positions.timer.x + 'px,' + positions.timer.y + 'px)');
+        $('#timerContainer').css('display', 'block');
       }
   });
 
