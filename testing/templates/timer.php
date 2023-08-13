@@ -27,7 +27,7 @@
                 <input type="checkbox" id="loopCheckbox">
                 <label for="loopCheckbox">Repeat</label>
 
-                <label for="alarmSet">Alarm</label>
+                <label for="alarmSet" style="margin-left: 20px;">Sound</label>
                 <select name="" id="alarmSet">
                     <option value="https://www.tones7.com/media/text_notification.mp3">Soft bounce</option>
                     <option value="https://www.tones7.com/media/nice_sms.mp3">Electric Bounce</option>

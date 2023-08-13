@@ -1,12 +1,11 @@
 .scene #welcomeDraggable{
     color: #fff;
     width: 400px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.3px);
-    -webkit-backdrop-filter: blur(4.3px);
-    border: 1px solid rgba(255, 255, 255, 0.41);
+    background: rgba(230, 230, 230, 0.205);
+    box-shadow: 0 4px 30px rgba(230, 230, 230, 0.1);
+    backdrop-filter: blur(8.2px);
+    -webkit-backdrop-filter: blur(8.2px);
+    border-radius: 10px;
     resize: both;
     overflow: hidden;
     display: none;

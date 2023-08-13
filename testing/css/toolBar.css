@@ -1,7 +1,10 @@
 .toolBarContainer{
     position: fixed;
     height: 45px;
-    background: #00000091;
+    background: rgba(0, 0, 0, 0.88);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.2px);
+    -webkit-backdrop-filter: blur(8.2px);
     bottom: 15px;
     gap: 10px;
     left: 50%;
@@ -10,7 +13,6 @@
     border-radius: 5px;
     padding: 1px 0;
     justify-content: center;
-    border: 1px solid #fff;
 }
 
 .toolbarWrapper{

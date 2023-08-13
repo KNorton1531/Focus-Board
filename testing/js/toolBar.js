@@ -68,6 +68,11 @@ function rememberDisplay(){
 
     // Save the object to localStorage as a JSON string
     localStorage.setItem('displayStates', JSON.stringify(displayStates));
+
+    // Save the object to localStorage as a JSON string
+    localStorage.setItem('displayStates', JSON.stringify(displayStates));
+
+    updateButtonOutlines();
 }
 
 function initContainer() {
@@ -114,3 +119,27 @@ tippy('.barIcon.settings', {
   tippy('.barIcon.timer', {
     content: 'Timers',
   });
+
+  function initContainer() {
+    var displayStates = JSON.parse(localStorage.getItem('displayStates') || '{}');
+
+    // Check for the existence of the key rather than its truthy value
+    $('#spotifyContainer').css('display', displayStates.spotify);
+    $('#welcomeDraggable').css('display', displayStates.welcome);
+    $('#countdownContainer').css('display', displayStates.countdown);
+    $('#weatherContainer').css('display', displayStates.weather);
+    $('#timerContainer').css('display', displayStates.timer);
+
+    updateButtonOutlines();
+}
+
+function updateButtonOutlines() {
+    $(".barIcon").each(function() {
+        var containerSelector = $(this).data("container");
+        if ($(containerSelector).css("display") !== "none") {
+            $(this).css("outline", "solid 1px #fff");
+        } else {
+            $(this).css("outline", "none");
+        }
+    });
+}

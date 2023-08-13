@@ -29,7 +29,7 @@
         
     <div class="videoContainer">
         <video autoplay muted loop id="myVideo">
-            <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4" type="video/mp4">
+            <source src="https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/lake-house/Outside_Day.mp4" type="video/mp4">
         </video>
     </div>
 
