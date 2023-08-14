@@ -1,0 +1,20 @@
+lakehouse: https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/lake-house/Outside_Day.mp4
+
+northen lights 1: https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/cottage/cottage-exterior-final.mp4
+
+plane night: https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/plane/plane-night.mp4
+
+plane day: https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/plane/plane-day.mp4
+
+study snow: https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/study/snow-scene.mp4
+
+chill vibes night: https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/chill-vibes/LVR%20STARRY%20NIGHT.mp4
+
+garden night: https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/slowgarden/slow-garden-day.mp4
+
+garden day: https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/slowgarden/slow-garden-night.mp4
+
+seoul night: https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/seoul/inside-night.mp4
+
+seoul day: https://lofico.nyc3.cdn.digitaloceanspaces.com/scenes/seoul/inside-day.mp4
+

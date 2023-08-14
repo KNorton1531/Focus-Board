@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/scenes.css">
         <link rel="stylesheet" href="css/weather.css">
         <link rel="stylesheet" href="css/timer.css">
         <link rel="stylesheet" href="css/countdown.css">
@@ -49,6 +50,7 @@
         <?php include 'templates/welcome.php';?>
         <?php include 'templates/information.php';?>
         <?php include 'templates/loader.php';?>
+        <?php include 'templates/scenes.php';?>
         <?php include 'templates/countdowns.php';
 
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?> 
@@ -131,6 +133,7 @@
         <script src="js/countdowns.js"></script>
         <script src="js/timer.js"></script>
         <script src="js/settings.js"></script>
+        <script src="js/scenes.js"></script>
         <script src="js/information.js"></script>
         <script src="js/toolBar.js"></script>
         <script src="js/index.js" defer></script>

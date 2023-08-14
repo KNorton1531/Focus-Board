@@ -24,6 +24,10 @@
             <img src="assets/svg/weather.svg" alt="">
         </div>
 
+        <div class="barIcon scenes" data-container="#toolbarContainer">
+            <img src="assets/svg/scenes.svg" alt="">
+        </div>
+
         <div class="barIcon timer" data-container="#timerContainer">
             <img src="assets/svg/timer.svg" alt="">
         </div>

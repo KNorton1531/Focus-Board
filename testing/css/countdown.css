@@ -8,6 +8,7 @@
     position: absolute;
     display: none;
     position: absolute;
+    width: 350px;
 }
 
 .countdownContent{
@@ -15,7 +16,7 @@
 }
 
 .countdownTitle{
-    font-size: 28px;
+    font-size: 24px;
     margin: 10px 0;
     text-align: center;
 }
@@ -28,7 +29,7 @@
 }
 
 .countdownItem{
-    margin: 10px 0 50px 0;
+    margin: 10px 0 10px 0;
 }
 
 .dateItem{
@@ -45,6 +46,7 @@
 .countdownDate{
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .presetCountdown{
@@ -56,7 +58,8 @@
     color: #fff;
 }
 
-#months, #weeks, #days, #hours #minues, #seconds{
+#months, #weeks, #days, #hours, #minutes, #seconds{
+    font-size: 25px;
 }
 
 #months{

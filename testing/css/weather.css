@@ -11,6 +11,7 @@
     -webkit-backdrop-filter: blur(8.2px);
     user-select: none;
     overflow: auto;
+    display: none;
     position: absolute;
 }
 

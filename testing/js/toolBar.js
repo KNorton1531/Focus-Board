@@ -37,6 +37,12 @@ $(document).ready(function(){
         rememberDisplay();
     });
 
+    $(".barIcon.scenes").click(function(){
+        $("#scenesContainer").toggle();
+        console.log("working");
+        rememberDisplay();
+    });
+
     setTimeout(initContainer, 1000);
 
 });
@@ -52,6 +58,7 @@ function rememberDisplay(){
     var NewYearCountdown = $('#NewYearCountdown').css('display');
     var weatherContainer = $('#weatherContainer').css('display');
     var timerContainer = $('#timerContainer').css('display');
+    var scenesContainer = $('#scenesContainer').css('display');
 
     // Store the states in an object
     var displayStates = {
@@ -63,7 +70,8 @@ function rememberDisplay(){
         bonfire: BonfireCountdown,
         newyear: NewYearCountdown,
         weather: weatherContainer,
-        timer: timerContainer
+        timer: timerContainer,
+        scenes: scenesContainer
     };
 
     // Save the object to localStorage as a JSON string
@@ -88,6 +96,7 @@ function initContainer() {
     $('#NewYearCountdown').css('display', displayStates.newyear);
     $('#weatherContainer').css('display', displayStates.weather);
     $('#timerContainer').css('display', displayStates.timer);
+    $('#scenesContainer').css('display', displayStates.scenes);
 }
 ////////////////////////////////////////////////////  Tool Tips  //////////////////////////////////////////////////////////////////////////////////
 
@@ -117,7 +126,11 @@ tippy('.barIcon.settings', {
   });
 
   tippy('.barIcon.timer', {
-    content: 'Timers',
+    content: 'Timer',
+  });
+
+  tippy('.barIcon.scenes', {
+    content: 'Scenes',
   });
 
   function initContainer() {
