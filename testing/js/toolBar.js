@@ -156,3 +156,17 @@ function updateButtonOutlines() {
         }
     });
 }
+
+$(document).on('click', function(event) {
+    // If the clicked element is not inside #myContainer and is not #toggleButton
+    if (!$(event.target).closest('#loginContainer').length && !$(event.target).closest('.barIcon.login').length) {
+        $('#loginContainer').hide();
+    }
+});
+
+$(document).on('click', function(event) {
+    // If the clicked element is not inside #myContainer and is not #toggleButton
+    if (!$(event.target).closest('#settingsContainer').length && !$(event.target).closest('.barIcon.settings').length) {
+        $('#settingsContainer').hide();
+    }
+});
