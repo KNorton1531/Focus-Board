@@ -3,9 +3,6 @@
     var spotifyContainer = new PlainDraggable(document.getElementById('spotifyContainer'),
     {handle: document.querySelector('#spotifyContainer .draggable')});
 
-    var welcomeContainer = new PlainDraggable(document.getElementById('welcomeDraggable'),
-    {handle: document.querySelector('#welcomeDraggable .draggable')});
-
     var countdownContainer = new PlainDraggable(document.getElementById('countdownContainer'),
     {handle: document.querySelector('#countdownContainer .draggable')});
 
@@ -31,23 +28,6 @@
 
 
     //****************************************** Handle container locations  ********************************************************/
-
-    welcomeContainer.onDragEnd = function(pointerXY) {
-      var transformValue = $('#welcomeDraggable').css('transform');
-      var regex = /matrix\(([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+),\s*([^,]+)\)/;
-      var match = transformValue.match(regex);
-      
-      if (match) {
-          
-          var xValue = parseFloat(match[5]);  
-          var yValue = parseFloat(match[6]);  
-
-          var positions = JSON.parse(localStorage.getItem('positions') || '{}');
-          positions.welcome = { x: xValue, y: yValue };
-          localStorage.setItem('positions', JSON.stringify(positions));
-
-        }
-    }
 
 spotifyContainer.onDragEnd = function(pointerXY) {
     var transformValue = $('#spotifyContainer').css('transform');
@@ -182,11 +162,6 @@ NewYearCountdown.onDragEnd = function(pointerXY) {
   $(document).ready(function() {
       var positions = JSON.parse(localStorage.getItem('positions') || '{}');
   
-      if (positions.welcome) { 
-          $('#welcomeDraggable').css('transform', 'translate(' + positions.welcome.x + 'px,' + positions.welcome.y + 'px)');
-          $('#welcomeDraggable').css('display', 'block');
-      }
-  
       if (positions.spotify) { 
           $('#spotifyContainer').css('transform', 'translate(' + positions.spotify.x + 'px,' + positions.spotify.y + 'px)');
           $('#spotifyContainer').css('display', 'block');
@@ -241,62 +216,7 @@ NewYearCountdown.onDragEnd = function(pointerXY) {
 
 
   
-  function setWelcomeMessage() {
-    var currentHour = new Date().getHours();
-    var welcomeMessage = "";
-    let subWelcome;
-
-    let userName = localStorage.getItem('userName');
-    $('.nameInput').attr('placeholder', userName);
-
-    if (!userName){
-      userName = '';
-    } else {
-      userName = ' '+userName;
-    }
   
-    if (currentHour >= 0 && currentHour < 2) {
-      welcomeMessage = "It's the early hours, " + userName;
-      subWelcome = "The world is quiet.";
-  } else if (currentHour >= 2 && currentHour < 4) {
-      welcomeMessage = "Still quite early, " + userName;
-      subWelcome = "Most people are deep in slumber.";
-  } else if (currentHour >= 4 && currentHour < 6) {
-      welcomeMessage = "Dawn's breaking, " + userName;
-      subWelcome = "A new day begins.";
-  } else if (currentHour >= 6 && currentHour < 8) {
-      welcomeMessage = "Good Early Morning, " + userName;
-      subWelcome = "The world is waking up.";
-  } else if (currentHour >= 8 && currentHour < 10) {
-      welcomeMessage = "Morning's in full swing, " + userName;
-      subWelcome = "The day is bright and active.";
-  } else if (currentHour >= 10 && currentHour < 12) {
-      welcomeMessage = "Approaching midday, " + userName;
-      subWelcome = "The sun is high in the sky.";
-  } else if (currentHour >= 12 && currentHour < 14) {
-      welcomeMessage = "It's noon, " + userName;
-      subWelcome = "Time for a midday break.";
-  } else if (currentHour >= 14 && currentHour < 16) {
-      welcomeMessage = "Mid-afternoon, " + userName;
-      subWelcome = "The day is in full motion.";
-  } else if (currentHour >= 16 && currentHour < 18) {
-      welcomeMessage = "Late afternoon, " + userName;
-      subWelcome = "Golden hour approaches.";
-  } else if (currentHour >= 18 && currentHour < 20) {
-      welcomeMessage = "Evening's upon us, " + userName;
-      subWelcome = "The sun sets, casting long shadows.";
-  } else if (currentHour >= 20 && currentHour < 22) {
-      welcomeMessage = "Late evening, " + userName;
-      subWelcome = "The world prepares for night.";
-  } else { // 22 to 23
-      welcomeMessage = "Night's almost here, " + userName;
-      subWelcome = "The night is calm and serene.";
-  }
-
-    
-    $('#welcomeContainer').text(welcomeMessage);
-    $('.subWelcome').text(subWelcome);
-  }
 
   function updateClock() {
     const date = new Date();

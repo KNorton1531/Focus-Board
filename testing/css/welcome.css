@@ -1,15 +1,20 @@
 .scene #welcomeDraggable{
     color: #fff;
-    width: 400px;
-    background: rgba(230, 230, 230, 0.205);
-    box-shadow: 0 4px 30px rgba(230, 230, 230, 0.1);
-    backdrop-filter: blur(8.2px);
-    -webkit-backdrop-filter: blur(8.2px);
-    border-radius: 10px;
-    resize: both;
-    overflow: hidden;
-    display: none;
-    position: absolute;
+    width: auto;
+    background: rgb(28,28,28);
+    background: linear-gradient(90deg, rgba(28,28,28,1) 0%, rgba(22,22,22,0.9724264705882353) 65%, rgba(24,24,24,0.7567401960784313) 82%, rgba(29,29,29,0.5270483193277311) 90%, rgba(0,212,255,0) 100%);
+    border-radius: 10px 0 0 10px;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    padding: 20px;
+    user-select: none;
+}
+
+.firstLineWelcome{
+    display: flex;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 #welcomeDraggable .draggable{
@@ -18,12 +23,18 @@
     padding: 20px;
 }
 
-#welcomeContainer{
+#welcomeContainer, .firstName{
     font-size: 24px;
     font-weight: bold;
+    white-space: nowrap;
+}
+
+.firstName{
 }
 
 .time{
-    font-size: 18px;
-    margin-top: 5px;
+    font-size: 24px;
+    margin-left: 200px;
+    margin-right: 125px;
+    white-space: nowrap;
 }

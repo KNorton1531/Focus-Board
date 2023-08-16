@@ -65,6 +65,7 @@
 
                 // Store current session ID
                 $currentUserId = $_SESSION['id'];
+                $firstName = $_SESSION['firstName'];
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
                     // Insert date to database
