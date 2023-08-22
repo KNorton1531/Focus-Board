@@ -96,7 +96,7 @@ $message = getWelcomeMessage();
 
 <script>
 function updateWelcomeMessage() {
-    fetch('getWelcomeMessage.php')
+    fetch('index.php?ajax=1')  // Note the added query parameter
         .then(response => response.json())
         .then(data => {
             document.getElementById('welcomeContainer').innerText = data.welcomeMessage;
@@ -111,5 +111,6 @@ function updateWelcomeMessage() {
 updateWelcomeMessage();
 
 // And then every hour
-setInterval(updateWelcomeMessage, 3600 * 1000);  // 3600 seconds = 1 hour
+setInterval(updateWelcomeMessage, 3600 * 1000);
+
 </script>

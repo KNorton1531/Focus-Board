@@ -136,8 +136,13 @@
         <script src="js/scenes.js"></script>
         <script src="js/information.js"></script>
         <script src="js/toolBar.js"></script>
-        <script src="js/index.js" defer></script>
         <script src="js/spotifyAPI.js" defer></script>
         <script src="js/plain-draggable.js"></script>
+        <script src="js/index.js" defer></script>
+        <script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
     </body>
 </html>

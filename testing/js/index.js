@@ -261,3 +261,6 @@ $('.closeAccount').click(function(){
   $("#loginContainer").hide();
 });
 
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
