@@ -41,58 +41,14 @@
     <div class="countdownTab tabContainer">
         <h5>Countdowns are being worked on</h5>
         <div class="countdownSettings">
-        <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
-
             <div class="countdownContent">
 
-                <?php
-                include 'DBconfig.php';
-
-                $charset = 'utf8mb4';
-
-                $dsn = "mysql:host=".DB_SERVER.";dbname=".DB_NAME.";charset=$charset";
-                $options = [
-                    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    PDO::ATTR_EMULATE_PREPARES   => false,
-                ];
-
-                try {
-                    $pdo = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $options);
-                } catch (\PDOException $e) {
-                    throw new \PDOException($e->getMessage(), (int)$e->getCode());
-                }
-
-                // Store current session ID
-                $currentUserId = $_SESSION['id'];
-                $firstName = $_SESSION['firstName'];
-
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['date'])) {
-                    // Insert date to database
-                    $stmt = $pdo->prepare('INSERT INTO countdowns (user_id, date) VALUES (?, ?)');
-                    $stmt->execute([$currentUserId, $_POST['date']]);
-                }
-
-                // Fetch dates for current user
-                $stmt = $pdo->prepare('SELECT date, title FROM countdowns WHERE user_id = ?');
-                $stmt->execute([$currentUserId]);
-                $dates = $stmt->fetchAll();
-                ?>
-                    <form action="" method="post">
-                        <label for="date">Add Date:</label>
-                        <input type="date" name="date" required>
-                        <input type="submit" value="Add">
-                    </form>
+                
 
                     <div class="dates-container">
                         <h3>Custom Countdowns</h3>
                         <ul>
-                        <?php foreach ($dates as $date) : ?>
-                            <li>
-                                <h3><?= htmlspecialchars($date['title']) ?></h3>
-                                <?= htmlspecialchars($date['date']) ?>
-                            </li>
-                        <?php endforeach; ?>
+                        
                         </ul>
                     </div>
 
@@ -139,15 +95,6 @@
 
 
             </div>
-
-            <?php } else {?>
-            <!-- If logged out, do this -->
-            <div class="countdownLogin">
-            <h4>Please log in to use countdowns</h4>
-            </div>
-
-
-        <?php } ?>
         </div>
 
     </div>
