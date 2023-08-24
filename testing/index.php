@@ -27,6 +27,8 @@
     </head>
     <body>
 
+    <script src="js/jquery.min.js"></script>
+
     <?php 
         session_start();
     ?>
@@ -145,7 +147,6 @@
 
         <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
         <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
-        <script src="js/jquery.min.js"></script>
         <script src="js/countdowns.js"></script>
         <script src="js/timer.js"></script>
         <script src="js/settings.js"></script>
@@ -156,9 +157,9 @@
         <script src="js/plain-draggable.js"></script>
         <script src="js/index.js" defer></script>
         <script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
-</script>
+            if ( window.history.replaceState ) {
+                window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
     </body>
 </html>

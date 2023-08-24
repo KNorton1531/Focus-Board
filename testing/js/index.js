@@ -241,11 +241,6 @@ NewYearCountdown.onDragEnd = function(pointerXY) {
   
   setInterval(updateClock, 1000);
 
-  $(document).ready(function() {
-    updateClock();
-    setWelcomeMessage();
-    setInterval(setWelcomeMessage, 30000); 
-});
 
 $(".signupLink").click(function(){
   $(".loginContent").addClass("hidden");
@@ -264,3 +259,17 @@ $('.closeAccount').click(function(){
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 }
+
+function updateMessages() {
+  const messages = getWelcomeMessage();
+  $('#welcomeContainer').text(messages.welcomeMessage);
+  $('.subWelcome').text(messages.subWelcome);
+  $('.specialMessage').text(messages.specialMessage);
+}
+
+// Call once immediately
+updateMessages();
+
+// Then set the interval
+setInterval(updateMessages, 10 * 60 * 1000); // 10 minutes in milliseconds
+

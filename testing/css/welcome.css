@@ -27,14 +27,40 @@
     font-size: 24px;
     font-weight: bold;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
 }
 
 .firstName{
 }
 
 .time{
-    font-size: 24px;
-    margin-left: 100px;
-    margin-right: 225px;
+    font-size: 34px;
     white-space: nowrap;
+}
+
+.timeContainer{
+    margin-left: 50px;
+    margin-right: 225px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sunTimes{
+    display: flex;
+    gap: 40px;
+}
+
+.sunriseContainer, .sunsetContainer{
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sunriseContainer img, .sunsetContainer img{
+    height: 30px;
 }
