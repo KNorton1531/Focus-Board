@@ -8,13 +8,18 @@
     top: 30px;
     left: 30px;
     padding: 20px;
+    padding-right: 30%;
     user-select: none;
 }
 
 .firstLineWelcome{
     display: flex;
     font-size: 24px;
-    font-weight: bold;
+    align-items: flex-start;
+    gap: 10%;
+    white-space: nowrap;
+    margin-bottom: 20px;
+    flex-direction: column;
 }
 
 #welcomeDraggable .draggable{
@@ -25,7 +30,6 @@
 
 #welcomeContainer, .firstName{
     font-size: 24px;
-    font-weight: bold;
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -34,9 +38,14 @@
 .firstName{
 }
 
+.dateContainer{
+    font-size: 1.1rem;
+}
+
 .time{
-    font-size: 34px;
-    white-space: nowrap;
+    font-size: 28px;
+    position: absolute;
+    right: 140px;
 }
 
 .timeContainer{

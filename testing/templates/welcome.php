@@ -1,10 +1,10 @@
 <div id="welcomeDraggable">
+    <div id="time" class="time"></div>
     <div class="firstLineWelcome">
         <div id="welcomeContainer"></div>
 
-        <div class="timeContainer">
-            <div id="time" class="time"></div>
-            <div class="sunTimes">
+        <!-- <div class="timeContainer"> -->
+            <!-- <div class="sunTimes">
                 <div class="sunriseContainer">
                     <img src="assets/svg/sunrise.svg" alt="">
                     <div class="sunrise"></div>
@@ -14,9 +14,10 @@
                     <img src="assets/svg/sunset.svg" alt="">
                     <div class="sunset"></div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
 
+        <div class="dateContainer"></div>
     </div> 
     <div class="subWelcome"></div>
 </div>
@@ -261,7 +262,7 @@
         } else if (currentHour >= 12 && currentHour < 14) {
             welcomeMessage = "It's noon, time for lunch" + userName;
         } else if (currentHour >= 14 && currentHour < 16) {
-            welcomeMessage = "Mid-afternoon," + userName; 
+            welcomeMessage = "It's mid-afternoon," + userName; 
         } else if (currentHour >= 16 && currentHour < 18) {
             welcomeMessage = "Late afternoon," + userName; 
         } else if (currentHour >= 18 && currentHour < 20) {
@@ -299,6 +300,50 @@ $( document ).ready(function() {
 
         return `${hours}:${minutes}${amOrPm}`;
     }
+
+    // Get the current date
+    const currentDate = new Date();
+
+    // Define an array of month names and day names
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    const dayNames = [
+        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+    ];
+
+    // Get the current month, day of the week, day of the month, and year
+    const month = monthNames[currentDate.getMonth()];
+    const dayOfWeek = dayNames[currentDate.getDay()];
+    const dayOfMonth = currentDate.getDate(); // Get the day of the month
+
+    // Function to get the appropriate ordinal suffix for the day of the month (e.g., 1st, 2nd, 3rd)
+    function getOrdinalSuffix(day) {
+        if (day >= 11 && day <= 13) {
+            return day + "th";
+        }
+        switch (day % 10) {
+            case 1:
+                return day + "st";
+            case 2:
+                return day + "nd";
+            case 3:
+                return day + "rd";
+            default:
+                return day + "th";
+        }
+    }
+
+    // Format the date as desired (e.g., "Monday, October 2nd, 2023")
+    const formattedDate = `${dayOfWeek}, ${month} ${getOrdinalSuffix(dayOfMonth)}`;
+
+    // Insert the formatted date into elements with class "dateContainer"
+    $(".dateContainer").text(formattedDate);
+
+
+    
 
 
 
