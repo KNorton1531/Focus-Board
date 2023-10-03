@@ -96,3 +96,7 @@ button{
     z-index: 3;
     cursor: pointer;
 }
+
+.loggedInContent{
+    padding: 25px;
+}

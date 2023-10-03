@@ -1,5 +1,4 @@
 #loginContainer{
-    width: 600px;
     border: solid #fff 1px;
     border-radius: 10px;
     text-align: center;
@@ -87,8 +86,8 @@
 }
 
 .loginTick{
-    height: 200px;
-    width: 200px;
+    height: 100px;
+    width: 100px;
 }
 
 .signoutLink{
