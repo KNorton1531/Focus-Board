@@ -103,35 +103,35 @@ function initContainer() {
 
 tippy('.barIcon.settings', {
     content: 'Settings',
-  });
+});
 
-  tippy('.barIcon.spotify', {
+tippy('.barIcon.spotify', {
     content: 'Spotify player',
-  });
+});
 
-  tippy('.barIcon.welcome', {
+tippy('.barIcon.welcome', {
     content: 'Toggle welcome',
-  });
+});
 
-  tippy('.barIcon.countdown', {
+tippy('.barIcon.countdown', {
     content: 'Countdowns',
-  });
+});
 
-  tippy('.barIcon.login', {
+tippy('.barIcon.login', {
     content: 'Accounts',
-  });
+});
 
-  tippy('.barIcon.weather', {
+tippy('.barIcon.weather', {
     content: 'Weather',
-  });
+});
 
-  tippy('.barIcon.timer', {
+tippy('.barIcon.timer', {
     content: 'Timer',
-  });
+});
 
-  tippy('.barIcon.scenes', {
+tippy('.barIcon.scenes', {
     content: 'Scenes',
-  });
+});
 
   function initContainer() {
     var displayStates = JSON.parse(localStorage.getItem('displayStates') || '{}');

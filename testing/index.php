@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/welcome.css">
         <link rel="stylesheet" href="css/login.css">
         <link rel="stylesheet" href="css/toolBar.css">
+        <link rel="stylesheet" href="css/effects.css">
         <link rel="stylesheet" href="css/spotify.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,9 +142,10 @@
         ?>
     </div>
 
+    
+</div>
 
-
-    </div>
+<canvas id="canvas"></canvas>
 
         <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
         <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
@@ -155,6 +157,7 @@
         <script src="js/toolBar.js"></script>
         <script src="js/spotifyAPI.js" defer></script>
         <script src="js/plain-draggable.js"></script>
+        <script src="js/effects.js"></script>
         <script src="js/index.js" defer></script>
         <script>
             if ( window.history.replaceState ) {

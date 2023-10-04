@@ -36,6 +36,37 @@
     width: 100%;
 }
 
+.barIcon .effectsContainer{
+    height: 40px;
+    width: 300px;
+    border: solid 1px black;
+    margin-top: -110px;
+    transform: translate(-46%, 12px);
+    background-color: #101010e3;
+    border-radius: 5px;
+    display: none;
+}
+
+.barIcon .effectsContainer::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Positioned at the bottom of the container */
+    left: 50%; /* Centered horizontally */
+    transform: translateX(-50%); /* Ensures true center alignment */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; /* Half width of the arrow */
+    border-right: 10px solid transparent; /* Half width of the arrow */
+    border-top: 10px solid #101010e3; /* Creates the triangle pointing down */
+}
+
+.barIcon .effectsContainer h5{
+    color: #fff;
+    text-align: center;
+    margin: 5px 0 10px 0px;
+    font-weight: normal;
+}
+
 .toolbarContainer .settings{
 
 }

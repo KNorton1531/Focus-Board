@@ -31,5 +31,42 @@
         <div class="barIcon timer" data-container="#timerContainer">
             <img src="assets/svg/timer.svg" alt="">
         </div>
+        <div class="barIcon effects" data-container="#timerContainer">
+            <img src="assets/svg/effects.svg" alt="">
+            <div class="effectsContainer">
+                <h5>Effects</h5>
+                <div class="effectsIcons">
+                    <div class="effectBox rainEffect"></div>
+                    <div class="effectBox leafEffect"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
+<script>
+$(document).ready(function() {
+    var timer;
+
+    $('.effects').on('mouseenter', function() {
+        // When mouse enters .effects, show the .effectsContainer
+        $('.effectsContainer').fadeIn(100);
+    }).on('mouseleave', function() {
+        // When mouse leaves .effects, set a timer to hide .effectsContainer
+        timer = setTimeout(function() {
+            $('.effectsContainer').fadeOut(100);
+        }, 300); // 300ms delay
+    });
+
+    $('.effectsContainer').on('mouseenter', function() {
+        // When mouse enters .effectsContainer, clear the timer to keep it open
+        clearTimeout(timer);
+    }).on('mouseleave', function() {
+        // When mouse leaves .effectsContainer, hide it
+        $('.effectsContainer').fadeOut(100);
+    });
+});
+
+
+</script>
