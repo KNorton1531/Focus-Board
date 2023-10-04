@@ -37,11 +37,10 @@
 }
 
 .barIcon .effectsContainer{
-    height: 40px;
     width: 300px;
     border: solid 1px black;
     margin-top: -110px;
-    transform: translate(-46%, 12px);
+    transform: translate(-46%, -10px);
     background-color: #101010e3;
     border-radius: 5px;
     display: none;
@@ -65,6 +64,20 @@
     text-align: center;
     margin: 5px 0 10px 0px;
     font-weight: normal;
+}
+
+.barIcon .effectsContainer .effectBox{
+    border: solid 1px #fff;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+}
+
+.barIcon .effectsContainer .effectsIcons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
 }
 
 .toolbarContainer .settings{

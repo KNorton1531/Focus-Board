@@ -37,6 +37,6 @@ function toggleExecution() {
     isScriptActive = !isScriptActive;
 }
 
-    $('.effects').click(toggleExecution);
+    $('.rainEffect').click(toggleExecution);
 });
 

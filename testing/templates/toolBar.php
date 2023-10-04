@@ -36,7 +36,7 @@
             <div class="effectsContainer">
                 <h5>Effects</h5>
                 <div class="effectsIcons">
-                    <div class="effectBox rainEffect"></div>
+                    <div class="effectBox rainEffect">RAIN</div>
                     <div class="effectBox leafEffect"></div>
                 </div>
             </div>
