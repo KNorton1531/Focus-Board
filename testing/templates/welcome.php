@@ -83,6 +83,43 @@
 
         const isAlmostWinter = isInDateRange(currentMonth, currentDay, 10, 25, 10, 31);
         const isWinter = isInDateRange(currentMonth, currentDay, 11, 1, 11, 15);
+
+        // January
+        const isJanuary = isInDateRange(currentMonth, currentDay, 0, 1, 0, 31);
+
+        // February (assuming non-leap year; for leap year, you might need another condition)
+        const isFebruary = isInDateRange(currentMonth, currentDay, 1, 1, 1, 28);
+
+        // March
+        const isMarch = isInDateRange(currentMonth, currentDay, 2, 1, 2, 31);
+
+        // April
+        const isApril = isInDateRange(currentMonth, currentDay, 3, 1, 3, 30);
+
+        // May
+        const isMay = isInDateRange(currentMonth, currentDay, 4, 1, 4, 31);
+
+        // June
+        const isJune = isInDateRange(currentMonth, currentDay, 5, 1, 5, 30);
+
+        // July
+        const isJuly = isInDateRange(currentMonth, currentDay, 6, 1, 6, 31);
+
+        // August
+        const isAugust = isInDateRange(currentMonth, currentDay, 7, 1, 7, 31);
+
+        // September
+        const isSeptember = isInDateRange(currentMonth, currentDay, 8, 1, 8, 30);
+
+        // October
+        const isOctober = isInDateRange(currentMonth, currentDay, 9, 1, 9, 31);
+
+        // November
+        const isNovember = isInDateRange(currentMonth, currentDay, 10, 1, 10, 30);
+
+        // December
+        const isDecember = isInDateRange(currentMonth, currentDay, 11, 1, 11, 31);
+
         
         // Unique days
         const isLongestDay = isExactDate(currentMonth, currentDay, 5, 20); 
@@ -97,6 +134,56 @@
 
 
         // Should be ordered for importance
+
+        // Month messages
+        if (isJanuary) {
+            subWelcome = "Start of a new year! Hope your January is off to a good start.";
+        }
+
+        if (isFebruary) {
+            subWelcome = "It's February! A month of love and shorter days. Stay warm!";
+        }
+
+        if (isMarch) {
+            subWelcome = "Hello, March! Spring is just around the corner.";
+        }
+
+        if (isApril) {
+            subWelcome = "April's here. Watch out for those spring showers!";
+        }
+
+        if (isMay) {
+            subWelcome = "It's May! Flowers are blooming, and the days are getting longer.";
+        }
+
+        if (isJune) {
+            subWelcome = "Welcome to June! Summer's starting to show.";
+        }
+
+        if (isJuly) {
+            subWelcome = "It's July! Full-on summer mode now. Stay cool!";
+        }
+
+        if (isAugust) {
+            subWelcome = "Hey there, August! Hope you're enjoying the summer vibes.";
+        }
+
+        if (isSeptember) {
+            subWelcome = "September's here. Fall's coming soon. Hope you're ready!";
+        }
+
+        if (isOctober) {
+            subWelcome = "October's arrived. Time for some pumpkin spice and everything nice!";
+        }
+
+        if (isNovember) {
+            subWelcome = "It's November! The year's winding down. Time for some reflection.";
+        }
+
+        if (isDecember) {
+            subWelcome = "Hey, December! Holidays are coming up. Stay cozy!";
+        }
+
         // Christmas Dates
         if (isAlmostDecember) {
             subWelcome = "Winter's chill is in the air, December is almost upon us!";

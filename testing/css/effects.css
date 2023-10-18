@@ -7,16 +7,7 @@
     --thunder-duration: 10s;
     --thunder-delay: 5s;
   }
-  
-  body {
-    background-image: linear-gradient(to bottom, #030420, #000000 70%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
+
   
   hr.thunder {
     border: unset;

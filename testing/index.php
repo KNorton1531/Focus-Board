@@ -48,6 +48,8 @@
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
 
+        // var_dump($_SESSION["user_id"]);
+
         include 'templates/DBconfig.php';
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -106,7 +108,7 @@
         if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == false) {
             ?>
             <div class="loginContent">
-            <h2>Login</h2>
+            <h2>Welcome Back!</h2>
             <form action="index.php" method="post">
                 <label for="username">Username:</label>
                 <input type="text" name="username" required>
@@ -119,15 +121,61 @@
         <div class="signupContent">
             <h2>Sign up</h2>
             <form action="index.php" method="post">
-                <label for="first_name">First Name:</label>
-                <input type="text" name="first_name" required>
-                <label for="username">Username:</label>
-                <input type="text" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" name="password" required>
+                <input type="text" name="first_name" placeholder="First Name" style="margin: 10px 0 30px 0;" required>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
                 <button type="submit" name="signup">Signup</button>
             </form>
         </div>
+
+        <button id="toggleButton">Don't have an account? Sign up here</button>
+
+
+            <style>
+                #loginContainer{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    background-color: #434343;
+                    background-image: url( 'assets/svg/Sprinkle.svg' );
+                }
+
+            </style>
+            
+            <script>
+                $(document).ready(function() {
+                    // Initially, hide the signup content and set the initial state to login
+                    $(".signupContent").hide();
+                    var currentState = "login";
+
+                    // Function to toggle the content and update the button text
+                    function toggleContent() {
+                        if (currentState === "login") {
+                            // Switch to signup content and update the button text
+                            $(".loginContent").hide();
+                            $(".signupContent").show();
+                            $("#toggleButton").text("Already have an account? Login here");
+                            currentState = "signup";
+                        } else {
+                            // Switch to login content and update the button text
+                            $(".signupContent").hide();
+                            $(".loginContent").show();
+                            $("#toggleButton").text("Don't have an account? Sign up here");
+                            currentState = "login";
+                        }
+                    }
+
+                    // Attach a click event handler to the toggle button
+                    $("#toggleButton").click(function() {
+                        toggleContent();
+                    });
+                });
+            </script>
+
+
         <?php
         } else { ?>
             <div class="loggedInContent">

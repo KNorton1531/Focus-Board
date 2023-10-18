@@ -34,10 +34,10 @@
         <div class="barIcon effects" data-container="#timerContainer">
             <img src="assets/svg/effects.svg" alt="">
             <div class="effectsContainer">
-                <h5>Effects</h5>
                 <div class="effectsIcons">
-                    <div class="effectBox rainEffect">RAIN</div>
-                    <div class="effectBox leafEffect"></div>
+                    <div class="effectBox rainEffect">Rain</div>
+                    <div class="effectBox rainEffect">Leafs</div>
+                    <div class="effectBox rainEffect">Snow</div>
                 </div>
             </div>
         </div>

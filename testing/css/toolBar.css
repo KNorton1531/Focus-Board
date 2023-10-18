@@ -1,7 +1,7 @@
 .toolBarContainer{
     position: fixed;
-    height: 45px;
-    background: rgba(0, 0, 0, 0.88);
+    height: 40px;
+    background: rgba(0, 0, 0, 80%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8.2px);
     -webkit-backdrop-filter: blur(8.2px);
@@ -14,19 +14,20 @@
     padding: 1px 0;
     justify-content: center;
     width: 90%;
+    border: solid 1px #717171;
 }
 
 .toolbarWrapper{
     display: flex;
-    gap: 20px;
+    gap: 15px;
     align-items: center;
     justify-content: center;
     margin: 0 20px;
 }
 
 .barIcon{
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     background-color: #0000006e;
     border-radius: 5px;
 }
@@ -37,10 +38,10 @@
 }
 
 .barIcon .effectsContainer{
-    width: 300px;
+    width: 215px;
     border: solid 1px black;
     margin-top: -110px;
-    transform: translate(-46%, -10px);
+    transform: translate(-46%, 10px);
     background-color: #101010e3;
     border-radius: 5px;
     display: none;
@@ -78,6 +79,8 @@
     justify-content: center;
     gap: 20px;
     cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .toolbarContainer .settings{
